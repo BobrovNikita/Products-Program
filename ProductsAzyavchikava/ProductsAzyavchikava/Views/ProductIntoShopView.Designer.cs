@@ -1,6 +1,6 @@
-﻿namespace ProductsAzyavchikava.Views
+﻿namespace ProductsAzyavchikava.Views.Intefraces
 {
-    partial class ShopView
+    partial class ProductIntoShopView
     {
         /// <summary>
         /// Required designer variable.
@@ -41,21 +41,16 @@
             this.SearchTxb = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.PhoneTxt = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.AreaTxt = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.ShopCmb = new System.Windows.Forms.ComboBox();
+            this.ProductCmb = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.AdressTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
-            this.NameTxt = new System.Windows.Forms.TextBox();
-            this.NumberTxt = new System.Windows.Forms.TextBox();
-            this.PrintBtn = new System.Windows.Forms.Button();
+            this.CountTxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -72,14 +67,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 73);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 4;
             // 
             // CloseBtn
             // 
             this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseBtn.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CloseBtn.Location = new System.Drawing.Point(755, 3);
+            this.CloseBtn.Location = new System.Drawing.Point(747, 12);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(41, 42);
             this.CloseBtn.TabIndex = 1;
@@ -92,9 +87,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 45);
+            this.label1.Size = new System.Drawing.Size(337, 45);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Магазины";
+            this.label1.Text = "Наличие в магазине";
             // 
             // tabControl1
             // 
@@ -105,11 +100,10 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 377);
-            this.tabControl1.TabIndex = 2;
+            this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.PrintBtn);
             this.tabPage1.Controls.Add(this.DeleteBtn);
             this.tabPage1.Controls.Add(this.EditBtn);
             this.tabPage1.Controls.Add(this.AddBtn);
@@ -130,7 +124,7 @@
             this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DeleteBtn.Location = new System.Drawing.Point(628, 158);
+            this.DeleteBtn.Location = new System.Drawing.Point(637, 167);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(146, 32);
             this.DeleteBtn.TabIndex = 6;
@@ -142,7 +136,7 @@
             this.EditBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.EditBtn.Location = new System.Drawing.Point(628, 120);
+            this.EditBtn.Location = new System.Drawing.Point(637, 129);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(147, 32);
             this.EditBtn.TabIndex = 5;
@@ -154,7 +148,7 @@
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.AddBtn.Location = new System.Drawing.Point(628, 82);
+            this.AddBtn.Location = new System.Drawing.Point(637, 91);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(147, 32);
             this.AddBtn.TabIndex = 4;
@@ -166,7 +160,7 @@
             this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SearchBtn.Location = new System.Drawing.Point(501, 44);
+            this.SearchBtn.Location = new System.Drawing.Point(504, 53);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
@@ -177,7 +171,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(11, 16);
+            this.label2.Location = new System.Drawing.Point(20, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 25);
             this.label2.TabIndex = 2;
@@ -188,9 +182,9 @@
             this.SearchTxb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchTxb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchTxb.Location = new System.Drawing.Point(11, 44);
+            this.SearchTxb.Location = new System.Drawing.Point(17, 53);
             this.SearchTxb.Name = "SearchTxb";
-            this.SearchTxb.Size = new System.Drawing.Size(484, 32);
+            this.SearchTxb.Size = new System.Drawing.Size(481, 32);
             this.SearchTxb.TabIndex = 1;
             // 
             // dataGridView1
@@ -203,32 +197,28 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 82);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 91);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(614, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(608, 250);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.PhoneTxt);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.AreaTxt);
-            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.ShopCmb);
+            this.tabPage2.Controls.Add(this.ProductCmb);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.AdressTxt);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.CancelBtn);
             this.tabPage2.Controls.Add(this.SaveBtn);
             this.tabPage2.Controls.Add(this.IdTxt);
-            this.tabPage2.Controls.Add(this.NameTxt);
-            this.tabPage2.Controls.Add(this.NumberTxt);
+            this.tabPage2.Controls.Add(this.CountTxt);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -237,86 +227,61 @@
             this.tabPage2.Text = "Детали";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // PhoneTxt
+            // ShopCmb
             // 
-            this.PhoneTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PhoneTxt.Location = new System.Drawing.Point(355, 105);
-            this.PhoneTxt.Mask = "+375(99) 000-00-00";
-            this.PhoneTxt.Name = "PhoneTxt";
-            this.PhoneTxt.Size = new System.Drawing.Size(213, 25);
-            this.PhoneTxt.TabIndex = 13;
+            this.ShopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ShopCmb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ShopCmb.FormattingEnabled = true;
+            this.ShopCmb.Location = new System.Drawing.Point(297, 99);
+            this.ShopCmb.Name = "ShopCmb";
+            this.ShopCmb.Size = new System.Drawing.Size(210, 29);
+            this.ShopCmb.TabIndex = 10;
             // 
-            // label8
+            // ProductCmb
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(355, 143);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 25);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Площадь";
-            // 
-            // AreaTxt
-            // 
-            this.AreaTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AreaTxt.Location = new System.Drawing.Point(355, 171);
-            this.AreaTxt.Name = "AreaTxt";
-            this.AreaTxt.Size = new System.Drawing.Size(213, 25);
-            this.AreaTxt.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(355, 75);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(170, 25);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Номер телефона";
+            this.ProductCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProductCmb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProductCmb.FormattingEnabled = true;
+            this.ProductCmb.Location = new System.Drawing.Point(297, 31);
+            this.ProductCmb.Name = "ProductCmb";
+            this.ProductCmb.Size = new System.Drawing.Size(210, 29);
+            this.ProductCmb.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(8, 219);
+            this.label6.Location = new System.Drawing.Point(300, 74);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 25);
+            this.label6.Size = new System.Drawing.Size(91, 25);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Адрес";
-            // 
-            // AdressTxt
-            // 
-            this.AdressTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AdressTxt.Location = new System.Drawing.Point(8, 247);
-            this.AdressTxt.Name = "AdressTxt";
-            this.AdressTxt.Size = new System.Drawing.Size(213, 25);
-            this.AdressTxt.TabIndex = 7;
+            this.label6.Text = "Магазин";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(8, 143);
+            this.label5.Location = new System.Drawing.Point(297, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 25);
+            this.label5.Size = new System.Drawing.Size(93, 25);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Название";
+            this.label5.Text = "Продукт";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(8, 75);
+            this.label4.Location = new System.Drawing.Point(9, 78);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 25);
+            this.label4.Size = new System.Drawing.Size(121, 25);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Номер магазина";
+            this.label4.Text = "Количество";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(8, 3);
+            this.label3.Location = new System.Drawing.Point(11, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 25);
             this.label3.TabIndex = 2;
@@ -327,7 +292,7 @@
             this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CancelBtn.Location = new System.Drawing.Point(476, 302);
+            this.CancelBtn.Location = new System.Drawing.Point(476, 304);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(151, 39);
             this.CancelBtn.TabIndex = 4;
@@ -339,7 +304,7 @@
             this.SaveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SaveBtn.Location = new System.Drawing.Point(633, 302);
+            this.SaveBtn.Location = new System.Drawing.Point(633, 304);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(151, 39);
             this.SaveBtn.TabIndex = 3;
@@ -355,43 +320,23 @@
             this.IdTxt.Size = new System.Drawing.Size(257, 29);
             this.IdTxt.TabIndex = 2;
             // 
-            // NameTxt
+            // CountTxt
             // 
-            this.NameTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NameTxt.Location = new System.Drawing.Point(8, 171);
-            this.NameTxt.Name = "NameTxt";
-            this.NameTxt.Size = new System.Drawing.Size(213, 25);
-            this.NameTxt.TabIndex = 1;
+            this.CountTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CountTxt.Location = new System.Drawing.Point(8, 103);
+            this.CountTxt.Name = "CountTxt";
+            this.CountTxt.Size = new System.Drawing.Size(213, 25);
+            this.CountTxt.TabIndex = 0;
             // 
-            // NumberTxt
-            // 
-            this.NumberTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NumberTxt.Location = new System.Drawing.Point(8, 103);
-            this.NumberTxt.Name = "NumberTxt";
-            this.NumberTxt.Size = new System.Drawing.Size(213, 25);
-            this.NumberTxt.TabIndex = 0;
-            // 
-            // PrintBtn
-            // 
-            this.PrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PrintBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PrintBtn.Location = new System.Drawing.Point(628, 196);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.Size = new System.Drawing.Size(146, 60);
-            this.PrintBtn.TabIndex = 7;
-            this.PrintBtn.Text = "Перечень товаров";
-            this.PrintBtn.UseVisualStyleBackColor = true;
-            // 
-            // ShopView
+            // ProductIntoShopView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
-            this.Name = "ShopView";
-            this.Text = "ShopView";
+            this.Name = "ProductIntoShopView";
+            this.Text = "ProductIntoShopView";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -419,20 +364,15 @@
         private TextBox SearchTxb;
         private DataGridView dataGridView1;
         private TabPage tabPage2;
+        private ComboBox ShopCmb;
+        private ComboBox ProductCmb;
+        private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Button CancelBtn;
         private Button SaveBtn;
         private TextBox IdTxt;
-        private TextBox NameTxt;
-        private TextBox NumberTxt;
-        private Label label8;
-        private TextBox AreaTxt;
-        private Label label7;
-        private Label label6;
-        private TextBox AdressTxt;
-        private MaskedTextBox PhoneTxt;
-        private Button PrintBtn;
+        private TextBox CountTxt;
     }
 }

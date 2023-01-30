@@ -1,4 +1,4 @@
-﻿using ProductsAzyavchikava.Views.Intefraces;
+﻿using ProductsAzyavchikava.Views.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,66 +9,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProductsAzyavchikava.Views
+namespace ProductsAzyavchikava.Views.Intefraces
 {
-    public partial class ShopView : Form, IShopView
+    public partial class ProductIntoShopView : Form, IProductIntoShopView
     {
         private string? _message;
         private bool _isSuccessful;
         private bool _isEdit;
-
         public Guid Id
         {
             get => Guid.Parse(IdTxt.Text);
             set => IdTxt.Text = value.ToString();
         }
-
-        public string Shop_Name
+        public ProductViewModel ProductId
         {
-            get=> NameTxt.Text;
-            set => NameTxt.Text = value;
+            get => (ProductViewModel)ProductCmb.SelectedItem;
+            set => ProductCmb.SelectedItem = value;
         }
-
-        public int Identity
+        public ShopViewModel ShopId
+        {
+            get => (ShopViewModel)ShopCmb.SelectedItem;
+            set => ShopCmb.SelectedItem = value;
+        }
+        public int Count
         {
             get
             {
-                if (!int.TryParse(NumberTxt.Text, out _))
+                if (!int.TryParse(CountTxt.Text, out _))
                 {
                     return 0;
                 }
                 else
                 {
-                    return int.Parse(NumberTxt.Text);
+                    return int.Parse(CountTxt.Text);
                 }
             }
-            set 
+            set
             {
                 if (value != -1)
                 {
-                    NumberTxt.Text = value.ToString();
+                    CountTxt.Text = value.ToString();
                 }
+                else
+                    CountTxt.Text = string.Empty;
             }
-        }
-        public string Adress
-        {
-            get => AdressTxt.Text;
-            set => AdressTxt.Text = value;
-        }
-        public string Phone
-        {
-            get => PhoneTxt.Text;
-            set=> PhoneTxt.Text = value;
-        }
-        public string Area
-        {
-            get => AreaTxt.Text; 
-            set => AreaTxt.Text = value;
         }
         public string searchValue
         {
             get => SearchTxb.Text;
-            set=> SearchTxb.Text = value;
+            set => SearchTxb.Text = value;
         }
         public bool IsEdit
         {
@@ -82,11 +71,18 @@ namespace ProductsAzyavchikava.Views
         }
         public string Message
         {
-            get => _message; 
+            get => _message;
             set => _message = value;
         }
 
-        public ShopView()
+        public event EventHandler SearchEvent;
+        public event EventHandler AddNewEvent;
+        public event EventHandler EditEvent;
+        public event EventHandler DeleteEvent;
+        public event EventHandler SaveEvent;
+        public event EventHandler CancelEvent;
+
+        public ProductIntoShopView()
         {
             InitializeComponent();
             AssosiateAndRaiseViewEvents();
@@ -94,9 +90,9 @@ namespace ProductsAzyavchikava.Views
             CloseBtn.Click += delegate { this.Close(); };
             IdTxt.Text = Guid.Empty.ToString();
         }
+
         private void AssosiateAndRaiseViewEvents()
         {
-
             //Search
             SearchBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
             SearchTxb.KeyDown += (s, e) =>
@@ -120,10 +116,17 @@ namespace ProductsAzyavchikava.Views
             //Edit
             EditBtn.Click += delegate
             {
-                tabControl1.TabPages.Remove(tabPage1);
-                tabControl1.TabPages.Add(tabPage2);
-                EditEvent?.Invoke(this, EventArgs.Empty);
-                tabPage2.Text = "Редактирование";
+                if (dataGridView1.Rows.Count >= 1)
+                {
+                    tabControl1.TabPages.Remove(tabPage1);
+                    tabControl1.TabPages.Add(tabPage2);
+                    EditEvent?.Invoke(this, EventArgs.Empty);
+                    tabPage2.Text = "Редактирование";
+                }
+                else
+                {
+                    MessageBox.Show("You didn't choose some redord");
+                }
             };
 
             //Delete
@@ -159,52 +162,47 @@ namespace ProductsAzyavchikava.Views
                 tabControl1.TabPages.Remove(tabPage2);
             };
 
-            NumberTxt.KeyPress += (s,e) =>
+            CountTxt.KeyPress += (s, e) =>
             {
                 if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
                 {
                     e.Handled = true;
                 }
-            };
-
-            PhoneTxt.KeyPress += (s, e) =>
-            {
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-                {
-                    e.Handled = true;
-                }
-            };
-
-            PrintBtn.Click += delegate
-            {
-                PrintEvent.Invoke(this, EventArgs.Empty);
             };
         }
 
-        public event EventHandler SearchEvent;
-        public event EventHandler AddNewEvent;
-        public event EventHandler EditEvent;
-        public event EventHandler DeleteEvent;
-        public event EventHandler SaveEvent;
-        public event EventHandler CancelEvent;
-        public event EventHandler PrintEvent;
-
-        public void SetShopBindingSource(BindingSource source)
+        public void SetProductIntoShopBindingSource(BindingSource source)
         {
             dataGridView1.DataSource = source;
             dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
         }
 
-        private static ShopView? instance;
+        public void SetProductBindingSource(BindingSource source)
+        {
+            ProductCmb.DataSource = source;
+            ProductCmb.DisplayMember = "PName";
+            ProductCmb.ValueMember = "Id";
+        }
 
-        public static ShopView GetInstance(Form parentContainer)
+        public void SetShopBindingSource(BindingSource source)
+        {
+            ShopCmb.DataSource = source;
+            ShopCmb.DisplayMember = "Name";
+            ShopCmb.ValueMember = "Id";
+        }
+
+        private static ProductIntoShopView? instance;
+
+        public static ProductIntoShopView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
             {
                 if (parentContainer.ActiveMdiChild != null)
                     parentContainer.ActiveMdiChild.Close();
 
-                instance = new ShopView();
+                instance = new ProductIntoShopView();
                 instance.MdiParent = parentContainer;
                 instance.FormBorderStyle = FormBorderStyle.None;
                 instance.Dock = DockStyle.Fill;

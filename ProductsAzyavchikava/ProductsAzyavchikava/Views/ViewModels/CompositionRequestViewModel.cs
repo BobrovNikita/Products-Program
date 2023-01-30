@@ -28,6 +28,9 @@ namespace ProductsAzyavchikava.Views.ViewModels
 
         [DisplayName("Артикул")]
         public string ProductVenderCode { get; set; }
+
+        [DisplayName("Дата")]
+        public DateTime Date { get; set; }
         
         
     }

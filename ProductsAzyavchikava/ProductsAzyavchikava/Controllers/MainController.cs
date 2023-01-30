@@ -31,7 +31,12 @@ namespace ProductsAzyavchikava.Controllers
 
         private void LoadCompositionRequest(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            ICompositionRequestView view = CompositionRequestView.GetInstance((MainView)_mainView);
+            IRepository<CompositionRequestViewModel> repository = new CompositionRequestRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            IRepository<RequestViewModel> requestRepository = new RequestRepository(new ApplicationContext());
+            IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
+            new CompositionRequestController(view, repository, productRepository, requestRepository, storageRepository);
         }
 
         private void LoadProduct(object? sender, EventArgs e)
@@ -52,7 +57,11 @@ namespace ProductsAzyavchikava.Controllers
 
         private void LoadProductIntoShop(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IProductIntoShopView view = ProductIntoShopView.GetInstance((MainView)_mainView);
+            IRepository<ProductIntoShopViewModel> repository = new ProductIntoShopRepository(new ApplicationContext());
+            IRepository<ShopViewModel> shopRepository = new ShopRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            new ProductIntoShopController(view, repository, productRepository, shopRepository);
         }
 
         private void LoadRequest(object? sender, EventArgs e)
@@ -68,7 +77,9 @@ namespace ProductsAzyavchikava.Controllers
         {
             IShopView view = ShopView.GetInstance((MainView)_mainView);
             IRepository<ShopViewModel> repository = new ShopRepository(new ApplicationContext());
-            new ShopController(view, repository);
+            IRepository<Product_TypeViewModel> productTypeRepository = new ProductTypeRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            new ShopController(view, repository, productTypeRepository, productRepository);
         }
 
         private void LoadShop_Type(object? sender, EventArgs e)

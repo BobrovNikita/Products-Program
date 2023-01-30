@@ -22,7 +22,8 @@ namespace ProductsAzyavchikava
         public DbSet<Storage> Storages { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=ProductAzyavch;Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=ProductAzyavch;");
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

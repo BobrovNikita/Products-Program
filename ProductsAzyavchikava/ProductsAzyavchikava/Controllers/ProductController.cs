@@ -92,6 +92,13 @@ namespace ProductsAzyavchikava.Controllers
 
         private void Save(object? sender, EventArgs e)
         {
+            if (_view.ProductTypeId == null || _view.StorageId == null)
+            {
+                CleanViewFields();
+                _view.Message = "Values are not specified in the combobox";
+                return;
+            }
+
             var model = new ProductViewModel();
             model.ProductId = _view.Id;
             model.Product_TypeId = _view.ProductTypeId.Id;
@@ -136,7 +143,10 @@ namespace ProductsAzyavchikava.Controllers
             try
             {
                 var model = (ProductViewModel)productBindingSource.Current;
-
+                if (model == null)
+                {
+                    throw new Exception();
+                }
                 _repository.Delete(model);
                 _view.IsSuccessful = true;
                 _view.Message = "Product deleted successfuly";

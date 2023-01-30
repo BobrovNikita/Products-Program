@@ -9,31 +9,31 @@ using System.Threading.Tasks;
 
 namespace ProductsAzyavchikava.Controllers
 {
-    public class ShopTypeController
+    public class ProductIntoShopController
     {
-        private readonly IShop_TypeView _view;
-        private readonly IRepository<Shop_TypeViewModel> _repository;
-        private readonly IRepository<Product_TypeViewModel> _productRepository;
+        private readonly IProductIntoShopView _view;
+        private readonly IRepository<ProductIntoShopViewModel> _repository;
+        private readonly IRepository<ProductViewModel> _productRepository;
         private readonly IRepository<ShopViewModel> _shopRepository;
 
-        private BindingSource shopTypeBindingSource;
-        private BindingSource shopBindingSource;
-        private BindingSource productBindingSource;
+        private BindingSource ProductIntoShopBindingSource;
+        private BindingSource ProductBindingSource;
+        private BindingSource ShopBindingSource;
 
-        private IEnumerable<Shop_TypeViewModel>? _shopTypes;
+        private IEnumerable<ProductIntoShopViewModel>? _productsInShop;
+        private IEnumerable<ProductViewModel>? _products;
         private IEnumerable<ShopViewModel>? _shops;
-        private IEnumerable<Product_TypeViewModel>? _products;
 
-        public ShopTypeController(IShop_TypeView view, IRepository<Shop_TypeViewModel> repository, IRepository<Product_TypeViewModel> productRepository, IRepository<ShopViewModel> shopRepository)
+        public ProductIntoShopController(IProductIntoShopView view, IRepository<ProductIntoShopViewModel> repository, IRepository<ProductViewModel> productRepository, IRepository<ShopViewModel> shopRepository)
         {
             _view = view;
             _repository = repository;
             _productRepository = productRepository;
             _shopRepository = shopRepository;
 
-            shopTypeBindingSource = new BindingSource();
-            shopBindingSource = new BindingSource();
-            productBindingSource = new BindingSource();
+            ProductIntoShopBindingSource = new BindingSource();
+            ProductBindingSource = new BindingSource();
+            ShopBindingSource = new BindingSource();
 
             view.SearchEvent += Search;
             view.AddNewEvent += Add;
@@ -45,33 +45,33 @@ namespace ProductsAzyavchikava.Controllers
             LoadProductTypeList();
             LoadCombobox();
 
-            view.SetShopTypeBindingSource(shopTypeBindingSource);
-            view.SetProductBindingSource(productBindingSource);
-            view.SetShopBindingSource(shopBindingSource);
+            view.SetProductIntoShopBindingSource(ProductIntoShopBindingSource);
+            view.SetShopBindingSource(ShopBindingSource);
+            view.SetProductBindingSource(ProductBindingSource);
 
             _view.Show();
         }
 
         private void LoadProductTypeList()
         {
-            _shopTypes = _repository.GetAll();
-            shopTypeBindingSource.DataSource = _shopTypes;
+            _productsInShop = _repository.GetAll();
+            ProductIntoShopBindingSource.DataSource = _productsInShop;
         }
 
         private void LoadCombobox()
         {
             _products = _productRepository.GetAll();
-            productBindingSource.DataSource = _products;
+            ProductBindingSource.DataSource = _products;
 
             _shops = _shopRepository.GetAll();
-            shopBindingSource.DataSource = _shops;
+            ShopBindingSource.DataSource = _shops;
         }
 
         private void CleanViewFields()
         {
             _view.Id = Guid.Empty;
-            _view.ProductId = new Product_TypeViewModel();
             _view.ShopId = new ShopViewModel();
+            _view.ProductId = new ProductViewModel();
             _view.Count = -1;
         }
 
@@ -89,23 +89,23 @@ namespace ProductsAzyavchikava.Controllers
                 return;
             }
 
-            var model = new Shop_TypeViewModel();
-            model.Shop_TypeId = _view.Id;
+            var model = new ProductIntoShopViewModel();
+            model.Id = _view.Id;
             model.ShopId = _view.ShopId.Id;
-            model.Product_TypeId = _view.ProductId.Id;
-            model.Shop_Count = _view.Count;
+            model.ProductId = _view.ProductId.ProductId;
+            model.Count = _view.Count;
 
             try
             {
                 if (_view.IsEdit)
                 {
                     _repository.Update(model);
-                    _view.Message = "Shop edited successfuly";
+                    _view.Message = "Product into shop edited successfuly";
                 }
                 else
                 {
                     _repository.Create(model);
-                    _view.Message = "Shop added successfuly";
+                    _view.Message = "Product into shop added successfuly";
                 }
                 _view.IsSuccessful = true;
                 LoadProductTypeList();
@@ -122,30 +122,30 @@ namespace ProductsAzyavchikava.Controllers
         {
             try
             {
-                var model = (Shop_TypeViewModel)shopTypeBindingSource.Current;
+                var model = (ProductIntoShopViewModel)ProductIntoShopBindingSource.Current;
                 if (model == null)
                 {
                     throw new Exception();
                 }
                 _repository.Delete(model);
                 _view.IsSuccessful = true;
-                _view.Message = "Shop deleted successfuly";
+                _view.Message = "Product into shop deleted successfuly";
                 LoadProductTypeList();
             }
             catch (Exception)
             {
                 _view.IsSuccessful = false;
-                _view.Message = "An error ocurred, could not delete Shop";
+                _view.Message = "An error ocurred, could not delete Product into shop";
             }
         }
 
         private void LoadSelectedToEdit(object? sender, EventArgs e)
         {
-            var model = (Shop_TypeViewModel)shopTypeBindingSource.Current;
-            _view.Id = model.Shop_TypeId;
+            var model = (ProductIntoShopViewModel)ProductIntoShopBindingSource.Current;
+            _view.Id = model.Id;
             _view.ShopId.Id = model.ShopId;
-            _view.ProductId.Id = model.Product_TypeId;
-            _view.Count = model.Shop_Count;
+            _view.ProductId.ProductId = model.ProductId;
+            _view.Count = model.Count;
             _view.IsEdit = true;
         }
 
@@ -159,11 +159,11 @@ namespace ProductsAzyavchikava.Controllers
             bool emptyValue = String.IsNullOrWhiteSpace(_view.searchValue);
 
             if (emptyValue == false)
-                _shopTypes = _repository.GetAllByValue(_view.searchValue);
+                _productsInShop = _repository.GetAllByValue(_view.searchValue);
             else
-                _shopTypes = _repository.GetAll();
+                _productsInShop = _repository.GetAll();
 
-            shopTypeBindingSource.DataSource = _shopTypes;
+            ProductIntoShopBindingSource.DataSource = _productsInShop;
         }
     }
 }

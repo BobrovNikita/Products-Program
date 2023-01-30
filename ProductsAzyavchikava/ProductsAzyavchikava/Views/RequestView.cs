@@ -249,10 +249,17 @@ namespace ProductsAzyavchikava.Views
             //Edit
             EditBtn.Click += delegate
             {
-                tabControl1.TabPages.Remove(tabPage1);
-                tabControl1.TabPages.Add(tabPage2);
-                EditEvent?.Invoke(this, EventArgs.Empty);
-                tabPage2.Text = "Редактирование";
+                if (dataGridView1.Rows.Count >= 1)
+                {
+                    tabControl1.TabPages.Remove(tabPage1);
+                    tabControl1.TabPages.Add(tabPage2);
+                    EditEvent?.Invoke(this, EventArgs.Empty);
+                    tabPage2.Text = "Редактирование";
+                }
+                else
+                {
+                    MessageBox.Show("You didn't choose some redord");
+                }
             };
 
             //Delete

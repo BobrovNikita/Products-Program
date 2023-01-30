@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProductsAzyavchikava.Views.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +7,13 @@ using System.Threading.Tasks;
 
 namespace ProductsAzyavchikava.Views.Intefraces
 {
-    public interface IShopView
+    public interface ICompositionRequestView
     {
-
-        //Fields
         Guid Id { get; set; }
-        int Identity { get; set; }
-        string Shop_Name { get; set; }
-        string Adress { get; set; }
-        string Phone { get; set; }
-        string Area { get; set; }
-
+        RequestViewModel RequestId { get; set; }
+        ProductViewModel ProductId { get; set; }
+        int Count { get; set; }
+        int Sum { get; set; }
 
         string searchValue { get; set; }
         bool IsEdit { get; set; }
@@ -30,10 +27,11 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
-        event EventHandler PrintEvent;
+        event EventHandler RemainingStockEvent;
 
-
-        void SetShopBindingSource(BindingSource source);
+        void SetCompositionBindingSource(BindingSource source);
+        void SetRequestBindingSource(BindingSource source);
+        void SetProductBindingSource(BindingSource source);
         void Show();
     }
 }
