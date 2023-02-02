@@ -23,6 +23,8 @@ namespace ProductsAzyavchikava.Views.Intefraces
         string Driver { get; set; }
 
         string searchValue { get; set; }
+        DateTime firstDate { get; set; }
+        DateTime lastDate { get; set; }
         bool IsEdit { get; set; }
         bool IsSuccessful { get; set; }
         string Message { get; set; }
@@ -34,6 +36,7 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
+        event EventHandler SearchWithDateEvent;
 
         void SetRequestBindingSource(BindingSource source);
         void SetStorageBindingSource(BindingSource source);

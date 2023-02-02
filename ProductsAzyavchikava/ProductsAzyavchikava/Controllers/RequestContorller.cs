@@ -41,6 +41,7 @@ namespace ProductsAzyavchikava.Controllers
             view.DeleteEvent += DeleteSelected;
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
+            view.SearchWithDateEvent += SearchWithDate;
 
             LoadProductTypeList();
             LoadCombobox();
@@ -186,6 +187,13 @@ namespace ProductsAzyavchikava.Controllers
                 _requests = _repository.GetAllByValue(_view.searchValue);
             else
                 _requests = _repository.GetAll();
+
+            requestBindingSource.DataSource = _requests;
+        }
+
+        private void SearchWithDate(object? sender, EventArgs e)
+        {
+            _requests = _repository.GetAllByValue(_view.firstDate, _view.lastDate);
 
             requestBindingSource.DataSource = _requests;
         }

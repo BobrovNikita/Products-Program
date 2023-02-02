@@ -117,6 +117,33 @@ namespace ProductsAzyavchikava.Repositories
             }).ToList();
         }
 
+        public IEnumerable<RequestViewModel> GetAllByValue(DateTime date1, DateTime date2)
+        {
+            var result = db.Requests.Include(s => s.Shop)
+                              .Include(s => s.Storage)
+                              .Where
+                               ( r => r.Date >= date1 && r.Date <= date2.Date
+                               ).ToList();
+            return result.Select(o => new RequestViewModel
+            {
+                Id = o.RequestId,
+                ShopId = o.Shop.ShopId,
+                StorageId = o.StorageId,
+                Shop_Name = o.Shop.Shop_Name,
+                Shop_Adress = o.Shop.Shop_Adress,
+                Storage_Number = o.Storage.Storage_Number,
+                Date = o.Date,
+                Products_Count = o.Products_Count,
+                Cost = o.Request_Cost,
+                Nds_Sum = o.Nds_Sum,
+                Cost_With_NDS = o.Cost_With_NDS,
+                Number_Packages = o.Number_Packages,
+                Weigh = o.Weigh,
+                Car = o.Car,
+                Driver = o.Driver,
+            }).ToList();
+        }
+
         public RequestViewModel GetModel(Guid id)
         {
             var result = db.Requests.Include(s => s.Shop).Include(s => s.Storage).First(r => r.RequestId == id);
