@@ -10,6 +10,7 @@ namespace ProductsAzyavchikava.Repositories
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> GetAllByValue(string value);
+        IEnumerable<T> GetAllByValue(DateTime date1, DateTime date2) { return null; }
         T GetModel(Guid id);
         void Create(T model);
         void Update(T model);

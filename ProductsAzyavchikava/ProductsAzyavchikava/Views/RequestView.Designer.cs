@@ -33,6 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.SearchWithDateBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -41,6 +44,22 @@
             this.SearchTxb = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.DriverTxt = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.CarTxt = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.WeighTxt = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.NPackagesTxt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.NDS_Cost = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.NDSSumTxt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.CostTxt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DateObj = new System.Windows.Forms.DateTimePicker();
             this.ShopCmb = new System.Windows.Forms.ComboBox();
             this.StorageCmb = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,22 +70,6 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
-            this.DateObj = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CostTxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.NDSSumTxt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.NDS_Cost = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.NPackagesTxt = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.WeighTxt = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.CarTxt = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.DriverTxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -120,6 +123,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dateTimePicker2);
+            this.tabPage1.Controls.Add(this.dateTimePicker1);
+            this.tabPage1.Controls.Add(this.SearchWithDateBtn);
             this.tabPage1.Controls.Add(this.DeleteBtn);
             this.tabPage1.Controls.Add(this.EditBtn);
             this.tabPage1.Controls.Add(this.AddBtn);
@@ -134,6 +140,36 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker2.Location = new System.Drawing.Point(383, 15);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(226, 29);
+            this.dateTimePicker2.TabIndex = 13;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Location = new System.Drawing.Point(121, 15);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(226, 29);
+            this.dateTimePicker1.TabIndex = 12;
+            // 
+            // SearchWithDateBtn
+            // 
+            this.SearchWithDateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchWithDateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchWithDateBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SearchWithDateBtn.Location = new System.Drawing.Point(674, 12);
+            this.SearchWithDateBtn.Name = "SearchWithDateBtn";
+            this.SearchWithDateBtn.Size = new System.Drawing.Size(110, 32);
+            this.SearchWithDateBtn.TabIndex = 7;
+            this.SearchWithDateBtn.Text = "Search date";
+            this.SearchWithDateBtn.UseVisualStyleBackColor = true;
             // 
             // DeleteBtn
             // 
@@ -259,6 +295,151 @@
             this.tabPage2.Text = "Детали";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(565, 225);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(101, 25);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "Водитель";
+            // 
+            // DriverTxt
+            // 
+            this.DriverTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DriverTxt.Location = new System.Drawing.Point(567, 253);
+            this.DriverTxt.Name = "DriverTxt";
+            this.DriverTxt.Size = new System.Drawing.Size(213, 25);
+            this.DriverTxt.TabIndex = 25;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(565, 147);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 25);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Машина";
+            // 
+            // CarTxt
+            // 
+            this.CarTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CarTxt.Location = new System.Drawing.Point(567, 175);
+            this.CarTxt.Name = "CarTxt";
+            this.CarTxt.Size = new System.Drawing.Size(213, 25);
+            this.CarTxt.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(567, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 25);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Масса";
+            // 
+            // WeighTxt
+            // 
+            this.WeighTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WeighTxt.Location = new System.Drawing.Point(569, 103);
+            this.WeighTxt.Name = "WeighTxt";
+            this.WeighTxt.Size = new System.Drawing.Size(213, 25);
+            this.WeighTxt.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(569, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(213, 25);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Количество груз.мест";
+            // 
+            // NPackagesTxt
+            // 
+            this.NPackagesTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NPackagesTxt.Location = new System.Drawing.Point(571, 31);
+            this.NPackagesTxt.Name = "NPackagesTxt";
+            this.NPackagesTxt.Size = new System.Drawing.Size(213, 25);
+            this.NPackagesTxt.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(319, 147);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(121, 25);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Цена с НДС";
+            // 
+            // NDS_Cost
+            // 
+            this.NDS_Cost.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NDS_Cost.Location = new System.Drawing.Point(321, 175);
+            this.NDS_Cost.Name = "NDS_Cost";
+            this.NDS_Cost.Size = new System.Drawing.Size(213, 25);
+            this.NDS_Cost.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(6, 147);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 25);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Сумма НДС";
+            // 
+            // NDSSumTxt
+            // 
+            this.NDSSumTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NDSSumTxt.Location = new System.Drawing.Point(8, 175);
+            this.NDSSumTxt.Name = "NDSSumTxt";
+            this.NDSSumTxt.Size = new System.Drawing.Size(213, 25);
+            this.NDSSumTxt.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(321, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 25);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Цена";
+            // 
+            // CostTxt
+            // 
+            this.CostTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CostTxt.Location = new System.Drawing.Point(323, 103);
+            this.CostTxt.Name = "CostTxt";
+            this.CostTxt.Size = new System.Drawing.Size(213, 25);
+            this.CostTxt.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(323, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 25);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Дата:";
+            // 
+            // DateObj
+            // 
+            this.DateObj.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DateObj.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DateObj.Location = new System.Drawing.Point(323, 31);
+            this.DateObj.Name = "DateObj";
+            this.DateObj.Size = new System.Drawing.Size(226, 29);
+            this.DateObj.TabIndex = 11;
+            // 
             // ShopCmb
             // 
             this.ShopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -360,151 +541,6 @@
             this.CountTxt.Size = new System.Drawing.Size(213, 25);
             this.CountTxt.TabIndex = 0;
             // 
-            // DateObj
-            // 
-            this.DateObj.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DateObj.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DateObj.Location = new System.Drawing.Point(323, 31);
-            this.DateObj.Name = "DateObj";
-            this.DateObj.Size = new System.Drawing.Size(226, 29);
-            this.DateObj.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(323, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 25);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Дата:";
-            // 
-            // CostTxt
-            // 
-            this.CostTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CostTxt.Location = new System.Drawing.Point(323, 103);
-            this.CostTxt.Name = "CostTxt";
-            this.CostTxt.Size = new System.Drawing.Size(213, 25);
-            this.CostTxt.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(321, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 25);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Цена";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(6, 147);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 25);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Сумма НДС";
-            // 
-            // NDSSumTxt
-            // 
-            this.NDSSumTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NDSSumTxt.Location = new System.Drawing.Point(8, 175);
-            this.NDSSumTxt.Name = "NDSSumTxt";
-            this.NDSSumTxt.Size = new System.Drawing.Size(213, 25);
-            this.NDSSumTxt.TabIndex = 15;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(319, 147);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 25);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Цена с НДС";
-            // 
-            // NDS_Cost
-            // 
-            this.NDS_Cost.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NDS_Cost.Location = new System.Drawing.Point(321, 175);
-            this.NDS_Cost.Name = "NDS_Cost";
-            this.NDS_Cost.Size = new System.Drawing.Size(213, 25);
-            this.NDS_Cost.TabIndex = 17;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(569, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(213, 25);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Количество груз.мест";
-            // 
-            // NPackagesTxt
-            // 
-            this.NPackagesTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NPackagesTxt.Location = new System.Drawing.Point(571, 31);
-            this.NPackagesTxt.Name = "NPackagesTxt";
-            this.NPackagesTxt.Size = new System.Drawing.Size(213, 25);
-            this.NPackagesTxt.TabIndex = 19;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(567, 75);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 25);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Масса";
-            // 
-            // WeighTxt
-            // 
-            this.WeighTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.WeighTxt.Location = new System.Drawing.Point(569, 103);
-            this.WeighTxt.Name = "WeighTxt";
-            this.WeighTxt.Size = new System.Drawing.Size(213, 25);
-            this.WeighTxt.TabIndex = 21;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(565, 147);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 25);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Машина";
-            // 
-            // CarTxt
-            // 
-            this.CarTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CarTxt.Location = new System.Drawing.Point(567, 175);
-            this.CarTxt.Name = "CarTxt";
-            this.CarTxt.Size = new System.Drawing.Size(213, 25);
-            this.CarTxt.TabIndex = 23;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(565, 225);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(101, 25);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Водитель";
-            // 
-            // DriverTxt
-            // 
-            this.DriverTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DriverTxt.Location = new System.Drawing.Point(567, 253);
-            this.DriverTxt.Name = "DriverTxt";
-            this.DriverTxt.Size = new System.Drawing.Size(213, 25);
-            this.DriverTxt.TabIndex = 25;
-            // 
             // RequestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -567,5 +603,8 @@
         private TextBox CostTxt;
         private Label label7;
         private DateTimePicker DateObj;
+        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePicker1;
+        private Button SearchWithDateBtn;
     }
 }

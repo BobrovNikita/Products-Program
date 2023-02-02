@@ -198,13 +198,23 @@ namespace ProductsAzyavchikava.Views
         }
         public bool IsSuccessful
         {
-            get => _isSuccessful; 
+            get => _isSuccessful;
             set => _isSuccessful = value;
         }
         public string Message
         {
-            get => _message; 
+            get => _message;
             set => _message = value;
+        }
+        public DateTime firstDate
+        {
+            get => dateTimePicker1.Value;
+            set => dateTimePicker1.Value = value;
+        }
+        public DateTime lastDate
+        {
+            get => dateTimePicker2.Value;
+            set => dateTimePicker2.Value = value;
         }
 
         public event EventHandler SearchEvent;
@@ -213,6 +223,7 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        public event EventHandler SearchWithDateEvent;
 
         public RequestView()
         {
@@ -228,6 +239,7 @@ namespace ProductsAzyavchikava.Views
 
             //Search
             SearchBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            SearchWithDateBtn.Click += delegate { SearchWithDateEvent?.Invoke(this, EventArgs.Empty); };
             SearchTxb.KeyDown += (s, e) =>
             {
                 if (e.KeyData == Keys.Enter)
