@@ -26,8 +26,6 @@ namespace ProductsAzyavchikava.Repositories
                 model.Date = viewModel.Date;
                 model.Products_Count = viewModel.Products_Count;
                 model.Request_Cost = viewModel.Cost;
-                model.Nds_Sum = viewModel.Nds_Sum;
-                model.Cost_With_NDS = viewModel.Cost_With_NDS;
                 model.Number_Packages = viewModel.Number_Packages;
                 model.Weigh = viewModel.Weigh;
                 model.Car = viewModel.Car;
@@ -52,8 +50,6 @@ namespace ProductsAzyavchikava.Repositories
                 model.Date = viewModel.Date;
                 model.Products_Count = viewModel.Products_Count;
                 model.Request_Cost = viewModel.Cost;
-                model.Nds_Sum = viewModel.Nds_Sum;
-                model.Cost_With_NDS = viewModel.Cost_With_NDS;
                 model.Number_Packages = viewModel.Number_Packages;
                 model.Weigh = viewModel.Weigh;
                 model.Car = viewModel.Car;
@@ -78,10 +74,8 @@ namespace ProductsAzyavchikava.Repositories
                 Date = o.Date,
                 Products_Count = o.Products_Count,
                 Cost = o.Request_Cost,
-                Nds_Sum = o.Nds_Sum,
-                Cost_With_NDS = o.Cost_With_NDS,
                 Number_Packages = o.Number_Packages,
-                Weigh = o.Weigh,
+                Weigh = o.Weigh * o.Products_Count,
                 Car = o.Car,
                 Driver = o.Driver,
             }).ToList();
@@ -108,10 +102,8 @@ namespace ProductsAzyavchikava.Repositories
                 Date = o.Date,
                 Products_Count = o.Products_Count,
                 Cost = o.Request_Cost,
-                Nds_Sum = o.Nds_Sum,
-                Cost_With_NDS = o.Cost_With_NDS,
                 Number_Packages = o.Number_Packages,
-                Weigh = o.Weigh,
+                Weigh = o.Weigh * o.Products_Count,
                 Car = o.Car,
                 Driver = o.Driver,
             }).ToList();
@@ -135,10 +127,8 @@ namespace ProductsAzyavchikava.Repositories
                 Date = o.Date,
                 Products_Count = o.Products_Count,
                 Cost = o.Request_Cost,
-                Nds_Sum = o.Nds_Sum,
-                Cost_With_NDS = o.Cost_With_NDS,
                 Number_Packages = o.Number_Packages,
-                Weigh = o.Weigh,
+                Weigh = o.Weigh * o.Products_Count ,
                 Car = o.Car,
                 Driver = o.Driver,
             }).ToList();
@@ -158,10 +148,8 @@ namespace ProductsAzyavchikava.Repositories
             model.Storage_Number = result.Storage.Storage_Number;
             model.Products_Count = result.Products_Count;
             model.Cost = result.Request_Cost;
-            model.Nds_Sum = result.Nds_Sum;
-            model.Cost_With_NDS = result.Cost_With_NDS;
             model.Number_Packages = result.Number_Packages;
-            model.Weigh = result.Weigh;
+            model.Weigh = result.Weigh * result.Products_Count;
             model.Car = result.Car;
             model.Driver = result.Driver;
 
@@ -179,8 +167,6 @@ namespace ProductsAzyavchikava.Repositories
                 model.Date = viewModel.Date;
                 model.Products_Count = viewModel.Products_Count;
                 model.Request_Cost = viewModel.Cost;
-                model.Nds_Sum = viewModel.Nds_Sum;
-                model.Cost_With_NDS = viewModel.Cost_With_NDS;
                 model.Number_Packages = viewModel.Number_Packages;
                 model.Weigh = viewModel.Weigh;
                 model.Car = viewModel.Car;

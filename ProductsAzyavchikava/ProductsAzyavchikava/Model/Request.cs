@@ -24,14 +24,6 @@ namespace ProductsAzyavchikava.Model
         [Range(1, 10000, ErrorMessage = "Cost must be between 1 and 10000")]
         public int Request_Cost { get; set; }
 
-        [Required(ErrorMessage = "Nds sum is required field")]
-        [Range(1, 10000, ErrorMessage = "Nds sum must be between 1 and 10000")]
-        public int Nds_Sum { get; set; }
-
-        [Required(ErrorMessage = "Cost with Nds is required field")]
-        [Range(1, 10000, ErrorMessage = "Cost with Nds must be between 1 and 10000")]
-        public int Cost_With_NDS { get; set; }
-
         [Required(ErrorMessage = "Number Packeges is required field")]
         [Range(1, 5000, ErrorMessage = "Number Packeges must be between 1 and 5000")]
         public int Number_Packages { get; set; }
