@@ -84,52 +84,6 @@ namespace ProductsAzyavchikava.Views
                     CostTxt.Text = string.Empty;
             }
         }
-        public int Nds_Sum
-        {
-            get
-            {
-                if (!int.TryParse(NDSSumTxt.Text, out _))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return int.Parse(NDSSumTxt.Text);
-                }
-            }
-            set
-            {
-                if (value != -1)
-                {
-                    NDSSumTxt.Text = value.ToString();
-                }
-                else
-                    NDSSumTxt.Text = string.Empty;
-            }
-        }
-        public int Cost_with_NDS
-        {
-            get
-            {
-                if (!int.TryParse(NDS_Cost.Text, out _))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return int.Parse(NDS_Cost.Text);
-                }
-            }
-            set
-            {
-                if (value != -1)
-                {
-                    NDS_Cost.Text = value.ToString();
-                }
-                else
-                    NDS_Cost.Text = string.Empty;
-            }
-        }
         public int Number_Packages
         {
             get
@@ -324,22 +278,6 @@ namespace ProductsAzyavchikava.Views
             };
 
             CostTxt.KeyPress += (s, e) =>
-            {
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-                {
-                    e.Handled = true;
-                }
-            };
-
-            NDSSumTxt.KeyPress += (s, e) =>
-            {
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-                {
-                    e.Handled = true;
-                }
-            };
-
-            NDS_Cost.KeyPress += (s, e) =>
             {
                 if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
                 {

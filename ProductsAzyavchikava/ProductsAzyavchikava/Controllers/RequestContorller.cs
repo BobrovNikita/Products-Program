@@ -76,8 +76,6 @@ namespace ProductsAzyavchikava.Controllers
             _view.Date = DateTime.Now;
             _view.Product_Count = -1;
             _view.Cost = -1;
-            _view.Nds_Sum = -1;
-            _view.Cost_with_NDS = -1;
             _view.Number_Packages = -1;
             _view.Weigh = -1;
             _view.Car = string.Empty;
@@ -105,8 +103,6 @@ namespace ProductsAzyavchikava.Controllers
             model.Date = _view.Date;
             model.Products_Count = _view.Product_Count;
             model.Cost = _view.Cost;
-            model.Nds_Sum = _view.Nds_Sum;
-            model.Cost_With_NDS = _view.Cost_with_NDS;
             model.Number_Packages = _view.Number_Packages;
             model.Weigh = _view.Weigh;
             model.Car = _view.Car;
@@ -165,10 +161,8 @@ namespace ProductsAzyavchikava.Controllers
             _view.Date = model.Date; 
             _view.Product_Count = model.Products_Count;
             _view.Cost = model.Cost;
-            _view.Nds_Sum = model.Nds_Sum;
-            _view.Cost_with_NDS = model.Cost_With_NDS;
             _view.Number_Packages = model.Number_Packages;
-            _view.Weigh = model.Weigh;
+            _view.Weigh = model.Weigh / model.Products_Count;
             _view.Car = model.Car;
             _view.Driver = model.Driver;
             _view.IsEdit = true;

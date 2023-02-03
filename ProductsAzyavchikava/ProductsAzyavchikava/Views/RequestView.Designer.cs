@@ -52,10 +52,6 @@
             this.WeighTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.NPackagesTxt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.NDS_Cost = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.NDSSumTxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.CostTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -269,10 +265,6 @@
             this.tabPage2.Controls.Add(this.WeighTxt);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.NPackagesTxt);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.NDS_Cost);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.NDSSumTxt);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.CostTxt);
             this.tabPage2.Controls.Add(this.label7);
@@ -366,42 +358,6 @@
             this.NPackagesTxt.Name = "NPackagesTxt";
             this.NPackagesTxt.Size = new System.Drawing.Size(213, 25);
             this.NPackagesTxt.TabIndex = 19;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(319, 147);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 25);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Цена с НДС";
-            // 
-            // NDS_Cost
-            // 
-            this.NDS_Cost.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NDS_Cost.Location = new System.Drawing.Point(321, 175);
-            this.NDS_Cost.Name = "NDS_Cost";
-            this.NDS_Cost.Size = new System.Drawing.Size(213, 25);
-            this.NDS_Cost.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(6, 147);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 25);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Сумма НДС";
-            // 
-            // NDSSumTxt
-            // 
-            this.NDSSumTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NDSSumTxt.Location = new System.Drawing.Point(8, 175);
-            this.NDSSumTxt.Name = "NDSSumTxt";
-            this.NDSSumTxt.Size = new System.Drawing.Size(213, 25);
-            this.NDSSumTxt.TabIndex = 15;
             // 
             // label8
             // 
@@ -595,10 +551,6 @@
         private TextBox WeighTxt;
         private Label label11;
         private TextBox NPackagesTxt;
-        private Label label10;
-        private TextBox NDS_Cost;
-        private Label label9;
-        private TextBox NDSSumTxt;
         private Label label8;
         private TextBox CostTxt;
         private Label label7;

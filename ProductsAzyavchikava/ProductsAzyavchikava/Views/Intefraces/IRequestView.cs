@@ -15,8 +15,6 @@ namespace ProductsAzyavchikava.Views.Intefraces
         DateTime Date { get; set; }
         int Product_Count { get; set; }
         int Cost { get; set; }
-        int Nds_Sum { get; set; }
-        int Cost_with_NDS { get; set; }
         int Number_Packages { get; set; }
         int Weigh { get; set; }
         string Car { get; set; }

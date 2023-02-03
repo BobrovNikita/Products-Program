@@ -61,9 +61,12 @@ namespace ProductsAzyavchikava.Repositories
             {
                 Id = o.CompositionRequestId,
                 ProductId = o.Product.ProductId,
-                RequestId= o.Request.RequestId,
+                RequestId = o.Request.RequestId,
                 Count = o.Count,
-                Sum = o.Sum,
+                SumNds = o.Product.Cost * o.Product.NDS,
+                CostWithNDS = (o.Product.Cost * o.Product.NDS) + o.Product.Cost,
+                RetailPrice = (o.Product.Cost * o.Product.NDS + o.Product.Cost) / o.Request.Products_Count,
+                Sum = ((o.Product.Cost * o.Product.NDS + o.Product.Cost) / o.Request.Products_Count) * o.Count,
                 ProductName = o.Product.Name,
                 ProductCount = o.Request.Products_Count,
                 ProductVenderCode = o.Product.VendorCode,
@@ -84,7 +87,10 @@ namespace ProductsAzyavchikava.Repositories
                 ProductId = o.Product.ProductId,
                 RequestId = o.Request.RequestId,
                 Count = o.Count,
-                Sum = o.Sum,
+                SumNds = o.Product.Cost * o.Product.NDS,
+                CostWithNDS = (o.Product.Cost * o.Product.NDS) + o.Product.Cost,
+                RetailPrice = (o.Product.Cost * o.Product.NDS + o.Product.Cost) / o.Request.Products_Count,
+                Sum = ((o.Product.Cost * o.Product.NDS + o.Product.Cost) / o.Request.Products_Count) * o.Count,
                 ProductName = o.Product.Name,
                 ProductCount = o.Request.Products_Count,
                 ProductVenderCode = o.Product.VendorCode,
@@ -102,7 +108,10 @@ namespace ProductsAzyavchikava.Repositories
             model.ProductId = result.Product.ProductId;
             model.RequestId = result.Request.RequestId;
             model.Count = result.Count;
-            model.Sum = result.Sum;
+            model.SumNds = result.Product.Cost * result.Product.NDS;
+            model.CostWithNDS = (result.Product.Cost * result.Product.NDS) + result.Product.Cost;
+            model.RetailPrice = (result.Product.Cost * result.Product.NDS + result.Product.Cost) / result.Request.Products_Count;
+            model.Sum = ((result.Product.Cost * result.Product.NDS + result.Product.Cost) / result.Request.Products_Count) * result.Count;
             model.ProductName = result.Product.Name;
             model.ProductCount = result.Request.Products_Count;
             model.ProductVenderCode = result.Product.VendorCode;

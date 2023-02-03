@@ -33,12 +33,6 @@ namespace ProductsAzyavchikava.Views.ViewModels
         [DisplayName("Цена")]
         public int Cost { get; set; }
 
-        [DisplayName("Сумма НДС")]
-        public int Nds_Sum { get; set; }
-
-        [DisplayName("Цена с НДС")]
-        public int Cost_With_NDS { get; set; }
-
         [DisplayName("Кол.груз.мест")]
         public int Number_Packages { get; set; }
 

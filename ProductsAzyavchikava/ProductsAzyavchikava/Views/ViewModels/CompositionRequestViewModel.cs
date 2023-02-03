@@ -20,6 +20,15 @@ namespace ProductsAzyavchikava.Views.ViewModels
         [DisplayName("Сумма")]
         public int Sum { get; set; }
 
+        [DisplayName("Сумма НДС")]
+        public int SumNds { get; set; }
+
+        [DisplayName("Цена с НДС")]
+        public int CostWithNDS { get; set; }
+
+        [DisplayName("Розничная цена")]
+        public int RetailPrice { get; set; }
+
         [DisplayName("Количество товаров")]
         public int ProductCount { get; set; }
 
