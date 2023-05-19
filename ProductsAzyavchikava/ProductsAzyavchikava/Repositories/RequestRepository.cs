@@ -24,6 +24,7 @@ namespace ProductsAzyavchikava.Repositories
                 model.ShopId = viewModel.ShopId;
                 model.StorageId = viewModel.StorageId;
                 model.Date = viewModel.Date;
+                model.SupplyDate = viewModel.SupplyDate;
                 model.Products_Count = viewModel.Products_Count;
                 model.Request_Cost = viewModel.Cost;
                 model.Number_Packages = viewModel.Number_Packages;
@@ -48,6 +49,7 @@ namespace ProductsAzyavchikava.Repositories
                 model.ShopId = viewModel.ShopId;
                 model.StorageId = viewModel.StorageId;
                 model.Date = viewModel.Date;
+                model.SupplyDate = viewModel.SupplyDate;
                 model.Products_Count = viewModel.Products_Count;
                 model.Request_Cost = viewModel.Cost;
                 model.Number_Packages = viewModel.Number_Packages;
@@ -72,6 +74,7 @@ namespace ProductsAzyavchikava.Repositories
                 Shop_Adress = o.Shop.Shop_Adress,
                 Storage_Number = o.Storage.Storage_Number,
                 Date = o.Date,
+                SupplyDate = o.SupplyDate,
                 Products_Count = o.Products_Count,
                 Cost = o.Request_Cost,
                 Number_Packages = o.Number_Packages,
@@ -100,6 +103,7 @@ namespace ProductsAzyavchikava.Repositories
                 Shop_Adress = o.Shop.Shop_Adress,
                 Storage_Number = o.Storage.Storage_Number,
                 Date = o.Date,
+                SupplyDate= o.SupplyDate,
                 Products_Count = o.Products_Count,
                 Cost = o.Request_Cost,
                 Number_Packages = o.Number_Packages,
@@ -125,6 +129,7 @@ namespace ProductsAzyavchikava.Repositories
                 Shop_Adress = o.Shop.Shop_Adress,
                 Storage_Number = o.Storage.Storage_Number,
                 Date = o.Date,
+                SupplyDate= o.SupplyDate,
                 Products_Count = o.Products_Count,
                 Cost = o.Request_Cost,
                 Number_Packages = o.Number_Packages,
@@ -143,6 +148,7 @@ namespace ProductsAzyavchikava.Repositories
             model.ShopId = result.ShopId;
             model.StorageId = result.StorageId;
             model.Date = result.Date;
+            model.SupplyDate = result.SupplyDate;
             model.Shop_Name = result.Shop.Shop_Name;
             model.Shop_Adress = result.Shop.Shop_Adress;
             model.Storage_Number = result.Storage.Storage_Number;
@@ -165,6 +171,7 @@ namespace ProductsAzyavchikava.Repositories
                 model.ShopId = viewModel.ShopId;
                 model.StorageId = viewModel.StorageId;
                 model.Date = viewModel.Date;
+                model.SupplyDate = viewModel.SupplyDate;
                 model.Products_Count = viewModel.Products_Count;
                 model.Request_Cost = viewModel.Cost;
                 model.Number_Packages = viewModel.Number_Packages;

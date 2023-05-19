@@ -64,8 +64,8 @@ namespace ProductsAzyavchikava.Repositories
 
         public IEnumerable<ProductIntoShopViewModel> GetAllByValue(string value)
         {
-            var result = db.ProductIntoShops.Include(p => p.ProductId)
-                                      .Include(s => s.ShopId)
+            var result = db.ProductIntoShops.Include(p => p.Product)
+                                      .Include(s => s.Shop)
                                       .Where(p => p.Count.ToString().Contains(value) ||
                                              p.Product.Name.Contains(value) ||
                                              p.Shop.Shop_Name.Contains(value) ||

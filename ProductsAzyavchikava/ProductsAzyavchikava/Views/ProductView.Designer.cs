@@ -48,8 +48,6 @@
             this.Weight_Per_PriceTxt = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.ProductionTxt = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.RetailCostTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.MarkupTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -235,8 +233,6 @@
             this.tabPage2.Controls.Add(this.Weight_Per_PriceTxt);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.ProductionTxt);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.RetailCostTxt);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.MarkupTxt);
             this.tabPage2.Controls.Add(this.label10);
@@ -316,7 +312,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(265, 258);
+            this.label13.Location = new System.Drawing.Point(265, 196);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(148, 25);
             this.label13.TabIndex = 24;
@@ -325,28 +321,10 @@
             // ProductionTxt
             // 
             this.ProductionTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProductionTxt.Location = new System.Drawing.Point(265, 286);
+            this.ProductionTxt.Location = new System.Drawing.Point(265, 224);
             this.ProductionTxt.Name = "ProductionTxt";
             this.ProductionTxt.Size = new System.Drawing.Size(213, 25);
             this.ProductionTxt.TabIndex = 23;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(265, 196);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(161, 25);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Розничная цена";
-            // 
-            // RetailCostTxt
-            // 
-            this.RetailCostTxt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RetailCostTxt.Location = new System.Drawing.Point(265, 224);
-            this.RetailCostTxt.Name = "RetailCostTxt";
-            this.RetailCostTxt.Size = new System.Drawing.Size(213, 25);
-            this.RetailCostTxt.TabIndex = 21;
             // 
             // label11
             // 
@@ -592,8 +570,6 @@
         private TextBox Weight_Per_PriceTxt;
         private Label label13;
         private TextBox ProductionTxt;
-        private Label label12;
-        private TextBox RetailCostTxt;
         private Label label11;
         private TextBox MarkupTxt;
         private Label label10;

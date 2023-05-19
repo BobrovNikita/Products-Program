@@ -12,7 +12,7 @@ using ProductsAzyavchikava;
 namespace ProductsAzyavchikava.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230113070956_InitialCreate")]
+    [Migration("20230518143753_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -50,6 +50,30 @@ namespace ProductsAzyavchikava.Migrations
                     b.HasIndex("RequestId");
 
                     b.ToTable("CompositionRequests");
+                });
+
+            modelBuilder.Entity("ProductsAzyavchikava.Model.CompositionSelling", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SellId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SellId");
+
+                    b.ToTable("Compositions");
                 });
 
             modelBuilder.Entity("ProductsAzyavchikava.Model.Product", b =>
@@ -170,9 +194,6 @@ namespace ProductsAzyavchikava.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Cost_With_NDS")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -180,9 +201,6 @@ namespace ProductsAzyavchikava.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("Nds_Sum")
-                        .HasColumnType("int");
 
                     b.Property<int>("Number_Packages")
                         .HasColumnType("int");
@@ -199,6 +217,9 @@ namespace ProductsAzyavchikava.Migrations
                     b.Property<Guid>("StorageId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("SupplyDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Weigh")
                         .HasColumnType("int");
 
@@ -209,6 +230,35 @@ namespace ProductsAzyavchikava.Migrations
                     b.HasIndex("StorageId");
 
                     b.ToTable("Requests");
+                });
+
+            modelBuilder.Entity("ProductsAzyavchikava.Model.Sell", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FIOSalesman")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShopId");
+
+                    b.ToTable("Sells");
                 });
 
             modelBuilder.Entity("ProductsAzyavchikava.Model.Shop", b =>
@@ -310,6 +360,25 @@ namespace ProductsAzyavchikava.Migrations
                     b.Navigation("Request");
                 });
 
+            modelBuilder.Entity("ProductsAzyavchikava.Model.CompositionSelling", b =>
+                {
+                    b.HasOne("ProductsAzyavchikava.Model.Product", "Product")
+                        .WithMany("CompositionSellings")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("ProductsAzyavchikava.Model.Sell", "Sell")
+                        .WithMany("CompositionSellings")
+                        .HasForeignKey("SellId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Sell");
+                });
+
             modelBuilder.Entity("ProductsAzyavchikava.Model.Product", b =>
                 {
                     b.HasOne("ProductsAzyavchikava.Model.Product_Type", "Product_Type")
@@ -367,6 +436,17 @@ namespace ProductsAzyavchikava.Migrations
                     b.Navigation("Storage");
                 });
 
+            modelBuilder.Entity("ProductsAzyavchikava.Model.Sell", b =>
+                {
+                    b.HasOne("ProductsAzyavchikava.Model.Shop", "Shop")
+                        .WithMany("Sells")
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Shop");
+                });
+
             modelBuilder.Entity("ProductsAzyavchikava.Model.Shop_Type", b =>
                 {
                     b.HasOne("ProductsAzyavchikava.Model.Product_Type", "Product_Type")
@@ -390,6 +470,8 @@ namespace ProductsAzyavchikava.Migrations
                 {
                     b.Navigation("CompositionRequests");
 
+                    b.Navigation("CompositionSellings");
+
                     b.Navigation("ProductIntoShops");
                 });
 
@@ -405,11 +487,18 @@ namespace ProductsAzyavchikava.Migrations
                     b.Navigation("CompositionRequests");
                 });
 
+            modelBuilder.Entity("ProductsAzyavchikava.Model.Sell", b =>
+                {
+                    b.Navigation("CompositionSellings");
+                });
+
             modelBuilder.Entity("ProductsAzyavchikava.Model.Shop", b =>
                 {
                     b.Navigation("ProductsIntoShops");
 
                     b.Navigation("Requests");
+
+                    b.Navigation("Sells");
 
                     b.Navigation("Shop_Types");
                 });

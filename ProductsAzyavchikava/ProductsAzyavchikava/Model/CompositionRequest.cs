@@ -12,18 +12,18 @@ namespace ProductsAzyavchikava.Model
         public Guid CompositionRequestId { get; set; }
 
 
-        [Required(ErrorMessage = "Count is required field")]
-        [Range(1, 10000, ErrorMessage = "Count must be between 1 and 10000")]
+        [Required(ErrorMessage = "Количество это обязательное поле")]
+        [Range(1, 10000, ErrorMessage = "Количество должно быть от 1 до 10000")]
         public int Count { get; set; }
 
-        [Required(ErrorMessage = "Sum is required field")]
-        [Range(1, 50000, ErrorMessage = "Sum must be between 1 and 50000")]
+        [Required(ErrorMessage = "Сумма это обязательное поле")]
+        [Range(1, 50000, ErrorMessage = "Сумма должна быть от 1 до 50000")]
         public int Sum { get; set; }
 
-        [Required(ErrorMessage = "Request ID is required field")]
+        [Required(ErrorMessage = "Заявка это обязательное поле")]
         public Guid RequestId { get; set; }
 
-        [Required(ErrorMessage = "Product ID is required field")]
+        [Required(ErrorMessage = "Товар это обязательное поле")]
         public Guid ProductId { get; set; }
 
 

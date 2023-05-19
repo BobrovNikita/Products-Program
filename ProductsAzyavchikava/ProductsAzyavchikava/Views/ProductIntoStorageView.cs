@@ -1,9 +1,19 @@
 ﻿using ProductsAzyavchikava.Views.Intefraces;
 using ProductsAzyavchikava.Views.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProductsAzyavchikava.Views
 {
-    public partial class RequestView : Form, IRequestView
+    public partial class ProductIntoStorageView : Form, IProductIntoStorageView
     {
         private string? _message;
         private bool _isSuccessful;
@@ -14,28 +24,17 @@ namespace ProductsAzyavchikava.Views
             get => Guid.Parse(IdTxt.Text);
             set => IdTxt.Text = value.ToString();
         }
-        public ShopViewModel ShopId
+        public ProductViewModel ProductId
         {
-            get => (ShopViewModel)ShopCmb.SelectedItem;
-            set => ShopCmb.SelectedItem = value;
+            get => (ProductViewModel)ProductCmb.SelectedItem;
+            set => ProductCmb.SelectedItem = value;
         }
         public StorageViewModel StorageId
         {
             get => (StorageViewModel)StorageCmb.SelectedItem;
             set => StorageCmb.SelectedItem = value;
         }
-        public DateTime Date
-        {
-            get => DateObj.Value;
-            set => DateObj.Value = value;
-        }
-
-        public DateTime SupplyDate
-        {
-            get => SupplyDateObj.Value;
-            set => DateObj.Value = value;
-        }
-        public int Product_Count
+        public int Count
         {
             get
             {
@@ -58,85 +57,6 @@ namespace ProductsAzyavchikava.Views
                     CountTxt.Text = string.Empty;
             }
         }
-        public int Cost
-        {
-            get
-            {
-                if (!int.TryParse(CostTxt.Text, out _))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return int.Parse(CostTxt.Text);
-                }
-            }
-            set
-            {
-                if (value != -1)
-                {
-                    CostTxt.Text = value.ToString();
-                }
-                else
-                    CostTxt.Text = string.Empty;
-            }
-        }
-        public int Number_Packages
-        {
-            get
-            {
-                if (!int.TryParse(NPackagesTxt.Text, out _))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return int.Parse(NPackagesTxt.Text);
-                }
-            }
-            set
-            {
-                if (value != -1)
-                {
-                    NPackagesTxt.Text = value.ToString();
-                }
-                else
-                    NPackagesTxt.Text = string.Empty;
-            }
-        }
-        public int Weigh
-        {
-            get
-            {
-                if (!int.TryParse(WeighTxt.Text, out _))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return int.Parse(WeighTxt.Text);
-                }
-            }
-            set
-            {
-                if (value != -1)
-                {
-                    WeighTxt.Text = value.ToString();
-                }
-                else
-                    WeighTxt.Text = string.Empty;
-            }
-        }
-        public string Car
-        {
-            get => CarTxt.Text;
-            set => CarTxt.Text = value;
-        }
-        public string Driver
-        {
-            get => DriverTxt.Text;
-            set => DriverTxt.Text = value;
-        }
         public string searchValue
         {
             get => SearchTxb.Text;
@@ -157,16 +77,6 @@ namespace ProductsAzyavchikava.Views
             get => _message;
             set => _message = value;
         }
-        public DateTime firstDate
-        {
-            get => dateTimePicker1.Value;
-            set => dateTimePicker1.Value = value;
-        }
-        public DateTime lastDate
-        {
-            get => dateTimePicker2.Value;
-            set => dateTimePicker2.Value = value;
-        }
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
@@ -174,9 +84,9 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
-        public event EventHandler SearchWithDateEvent;
+        public event EventHandler AktGettingEvent;
 
-        public RequestView()
+        public ProductIntoStorageView()
         {
             InitializeComponent();
             AssosiateAndRaiseViewEvents();
@@ -187,10 +97,8 @@ namespace ProductsAzyavchikava.Views
 
         private void AssosiateAndRaiseViewEvents()
         {
-
             //Search
             SearchBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
-            SearchWithDateBtn.Click += delegate { SearchWithDateEvent?.Invoke(this, EventArgs.Empty); };
             SearchTxb.KeyDown += (s, e) =>
             {
                 if (e.KeyData == Keys.Enter)
@@ -221,14 +129,14 @@ namespace ProductsAzyavchikava.Views
                 }
                 else
                 {
-                    MessageBox.Show("Вы не выбрали запись");
+                    MessageBox.Show("You didn't choose some redord");
                 }
             };
 
             //Delete
             DeleteBtn.Click += delegate
             {
-                var result = MessageBox.Show("Вы уверены что хотите удалить выбранную запись?", "Warning",
+                var result = MessageBox.Show("Are you sure you want to delete the selected record", "Warning",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
@@ -266,36 +174,22 @@ namespace ProductsAzyavchikava.Views
                 }
             };
 
-            NPackagesTxt.KeyPress += (s, e) =>
-            {
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-                {
-                    e.Handled = true;
-                }
-            };
-
-            CostTxt.KeyPress += (s, e) =>
-            {
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-                {
-                    e.Handled = true;
-                }
-            };
+            AktGettingPrintBtn.Click += delegate { AktGettingEvent?.Invoke(this, EventArgs.Empty); };
         }
 
-        public void SetRequestBindingSource(BindingSource source)
+        public void SetProductBindingSource(BindingSource source)
+        {
+            ProductCmb.DataSource = source;
+            ProductCmb.DisplayMember = "PName";
+            ProductCmb.ValueMember = "Id";
+        }
+
+        public void SetProductIntoStorageBindingSource(BindingSource source)
         {
             dataGridView1.DataSource = source;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[2].Visible = false;
-        }
-
-        public void SetShopBindingSource(BindingSource source)
-        {
-            ShopCmb.DataSource = source;
-            ShopCmb.DisplayMember = "Name";
-            ShopCmb.ValueMember = "Id";
         }
 
         public void SetStorageBindingSource(BindingSource source)
@@ -305,16 +199,16 @@ namespace ProductsAzyavchikava.Views
             StorageCmb.ValueMember = "Id";
         }
 
-        private static RequestView? instance;
+        private static ProductIntoStorageView? instance;
 
-        public static RequestView GetInstance(Form parentContainer)
+        public static ProductIntoStorageView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
             {
                 if (parentContainer.ActiveMdiChild != null)
                     parentContainer.ActiveMdiChild.Close();
 
-                instance = new RequestView();
+                instance = new ProductIntoStorageView();
                 instance.MdiParent = parentContainer;
                 instance.FormBorderStyle = FormBorderStyle.None;
                 instance.Dock = DockStyle.Fill;

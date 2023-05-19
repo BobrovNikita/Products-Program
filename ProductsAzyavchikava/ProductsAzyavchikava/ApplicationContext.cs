@@ -20,6 +20,10 @@ namespace ProductsAzyavchikava
         public DbSet<Shop> Shops { get; set; }
         public DbSet<Shop_Type> Shop_Types { get; set; }
         public DbSet<Storage> Storages { get; set; }
+        public DbSet<Sell> Sells { get; set; }
+        public DbSet<CompositionSelling> Compositions { get; set; }
+        public DbSet<ProductIntoStorage> ProductIntoStorages { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=ProductAzyavch;");
@@ -94,6 +98,43 @@ namespace ProductsAzyavchikava
                 .Entity<ProductIntoShop>()
                 .HasOne(e => e.Shop)
                 .WithMany(e => e.ProductsIntoShops)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            //Sells
+
+            modelBuilder
+                .Entity<Sell>()
+                .HasOne(e => e.Shop)
+                .WithMany(e => e.Sells)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
+            //CompositionSelling
+
+            modelBuilder
+                .Entity<CompositionSelling>()
+                .HasOne(e => e.Sell)
+                .WithMany(e => e.CompositionSellings)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder
+                .Entity<CompositionSelling>()
+                .HasOne(e => e.Product)
+                .WithMany(e => e.CompositionSellings)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            //Product into Storages
+
+            modelBuilder
+                .Entity<ProductIntoStorage>()
+                .HasOne(e => e.Product)
+                .WithMany(e => e.ProductIntoStorages)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder
+                .Entity<ProductIntoStorage>()
+                .HasOne(e => e.Storage)
+                .WithMany(e => e.ProductIntoStorages)
                 .OnDelete(DeleteBehavior.NoAction);
         }
     }

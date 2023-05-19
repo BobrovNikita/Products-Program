@@ -55,6 +55,26 @@ namespace ProductsAzyavchikava.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Sells",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PaymentMethod = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FIOSalesman = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ShopId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sells", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Sells_Shops_ShopId",
+                        column: x => x.ShopId,
+                        principalTable: "Shops",
+                        principalColumn: "ShopId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Shop_Types",
                 columns: table => new
                 {
@@ -120,12 +140,11 @@ namespace ProductsAzyavchikava.Migrations
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProductsCount = table.Column<int>(name: "Products_Count", type: "int", nullable: false),
                     RequestCost = table.Column<int>(name: "Request_Cost", type: "int", nullable: false),
-                    NdsSum = table.Column<int>(name: "Nds_Sum", type: "int", nullable: false),
-                    CostWithNDS = table.Column<int>(name: "Cost_With_NDS", type: "int", nullable: false),
                     NumberPackages = table.Column<int>(name: "Number_Packages", type: "int", nullable: false),
                     Weigh = table.Column<int>(type: "int", nullable: false),
                     Car = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Driver = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    SupplyDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ShopId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StorageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -142,6 +161,30 @@ namespace ProductsAzyavchikava.Migrations
                         column: x => x.StorageId,
                         principalTable: "Storages",
                         principalColumn: "StorageId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Compositions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SellId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Compositions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Compositions_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId");
+                    table.ForeignKey(
+                        name: "FK_Compositions_Sells_SellId",
+                        column: x => x.SellId,
+                        principalTable: "Sells",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -204,6 +247,16 @@ namespace ProductsAzyavchikava.Migrations
                 column: "RequestId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Compositions_ProductId",
+                table: "Compositions",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Compositions_SellId",
+                table: "Compositions",
+                column: "SellId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProductIntoShops_ProductId",
                 table: "ProductIntoShops",
                 column: "ProductId");
@@ -234,6 +287,11 @@ namespace ProductsAzyavchikava.Migrations
                 column: "StorageId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Sells_ShopId",
+                table: "Sells",
+                column: "ShopId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Shop_Types_Product_TypeId",
                 table: "Shop_Types",
                 column: "Product_TypeId");
@@ -251,6 +309,9 @@ namespace ProductsAzyavchikava.Migrations
                 name: "CompositionRequests");
 
             migrationBuilder.DropTable(
+                name: "Compositions");
+
+            migrationBuilder.DropTable(
                 name: "ProductIntoShops");
 
             migrationBuilder.DropTable(
@@ -258,6 +319,9 @@ namespace ProductsAzyavchikava.Migrations
 
             migrationBuilder.DropTable(
                 name: "Requests");
+
+            migrationBuilder.DropTable(
+                name: "Sells");
 
             migrationBuilder.DropTable(
                 name: "Products");

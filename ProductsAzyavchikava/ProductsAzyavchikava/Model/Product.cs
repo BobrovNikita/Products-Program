@@ -11,53 +11,49 @@ namespace ProductsAzyavchikava.Model
     {
         public Guid ProductId { get; set; }
 
-        [Required(ErrorMessage = "Name is required field")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 50")]
+        [Required(ErrorMessage = "Имя это обязательное поле")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Имя должно быть от 3 до 50 символов")]
         public string Name { get; set; }
 
 
-        [Required(ErrorMessage = "Vendor code is required field")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Vendor code must be between 3 and 50")]
+        [Required(ErrorMessage = "Артикул это обязательное поле")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Артикул должен быть от 3 до 50 символов")]
         public string VendorCode { get; set; }
 
-        [Required(ErrorMessage = "Hatch code is required field")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Hatch code must be between 3 and 50")]
+        [Required(ErrorMessage = "Штрих код это обязательное поле")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Штрих код должен быть от 3 до 50 символов")]
         public string Hatch { get; set; }
 
-        [Required(ErrorMessage = "Cost is required field")]
-        [Range(1, 1000, ErrorMessage = "Cost must be between 1 and 1000")]
+        [Required(ErrorMessage = "Цена это обязательное поле")]
+        [Range(1, 1000, ErrorMessage = "Цена должна быть от 1 до 1000")]
         public int Cost { get; set; }
 
-        [Required(ErrorMessage = "НДС is required field")]
-        [Range(1, 1000, ErrorMessage = "НДС must be between 1 and 1000")]
+        [Required(ErrorMessage = "НДС это обязательное поле")]
+        [Range(1, 1000, ErrorMessage = "НДС должен быть от 1 до 1000")]
         public int NDS { get; set; }
 
-        [Required(ErrorMessage = "Markup is required field")]
-        [Range(1, 1000, ErrorMessage = "Markup must be between 1 and 1000")]
+        [Required(ErrorMessage = "Наценка это обязательное поле")]
+        [Range(1, 1000, ErrorMessage = "Наценка должна быть от 1 до 1000")]
         public int Markup { get; set; }
 
-        [Required(ErrorMessage = "Retail price is required field")]
-        [Range(1, 1000, ErrorMessage = "Retail price must be between 1 and 1000")]
-        public int Retail_Price { get; set; }
-
-        [Required(ErrorMessage = "Production is required field")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Production must be between 3 and 50")]
+        [Required(ErrorMessage = "Производство это обязательное поле")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Производство должно быть от 3 до 50 символов")]
         public string Production { get; set; }
 
-        [Required(ErrorMessage = "Weight per price is required field")]
-        [Range(1, 1000, ErrorMessage = "Weight per price must be between 1 and 1000")]
+        [Required(ErrorMessage = "Масса грузового места за 1 штуку это обязательное поле")]
+        [Range(1, 1000, ErrorMessage = "Масса грузового места за 1 штуку должно быть от 1 до 1000")]
         public int Weight_Per_Price { get; set; }
 
-        [Required(ErrorMessage = "Weight is required field")]
-        [Range(1, 1000, ErrorMessage = "Weight must be between 1 and 1000")]
+        [Required(ErrorMessage = "Масса за 1 штуку это обязательное поле")]
+        [Range(1, 1000, ErrorMessage = "Масса за 1 штуку должна быть от 1 до 1000")]
         public int Weight { get; set; }
 
         public bool Availability { get; set; }
 
-        [Required(ErrorMessage = "Product Type ID is required field")]
+        [Required(ErrorMessage = "Разновидность товара это обязательное поле")]
         public Guid Product_TypeId { get; set; }
 
-        [Required(ErrorMessage = "Storage ID is required field")]
+        [Required(ErrorMessage = "Склад это обязательное поле")]
         public Guid StorageId { get; set; }
 
         public Product_Type Product_Type { get; set; }
@@ -65,6 +61,8 @@ namespace ProductsAzyavchikava.Model
 
 
         public IEnumerable<CompositionRequest> CompositionRequests { get; set; }
+        public IEnumerable<CompositionSelling> CompositionSellings { get; set; }
         public IEnumerable<ProductIntoShop> ProductIntoShops { get; set; }
+        public IEnumerable<ProductIntoStorage> ProductIntoStorages { get; set;}
     }
 }

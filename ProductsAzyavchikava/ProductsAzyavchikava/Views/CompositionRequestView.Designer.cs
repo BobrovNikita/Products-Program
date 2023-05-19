@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.PrintBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -53,10 +54,10 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
-            this.PrintBtn = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.RemainingStockBtn = new System.Windows.Forms.Button();
             this.CancelPrint = new System.Windows.Forms.Button();
+            this.RemainingStockBtn = new System.Windows.Forms.Button();
+            this.RequestBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -127,6 +128,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // PrintBtn
+            // 
+            this.PrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PrintBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PrintBtn.Location = new System.Drawing.Point(642, 202);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(146, 32);
+            this.PrintBtn.TabIndex = 7;
+            this.PrintBtn.Text = "Печать";
+            this.PrintBtn.UseVisualStyleBackColor = true;
             // 
             // DeleteBtn
             // 
@@ -357,20 +370,9 @@
             this.CountTxt.Size = new System.Drawing.Size(213, 25);
             this.CountTxt.TabIndex = 0;
             // 
-            // PrintBtn
-            // 
-            this.PrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PrintBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PrintBtn.Location = new System.Drawing.Point(642, 202);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.Size = new System.Drawing.Size(146, 32);
-            this.PrintBtn.TabIndex = 7;
-            this.PrintBtn.Text = "Печать";
-            this.PrintBtn.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.RequestBtn);
             this.tabPage3.Controls.Add(this.CancelPrint);
             this.tabPage3.Controls.Add(this.RemainingStockBtn);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
@@ -379,6 +381,18 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Печать";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // CancelPrint
+            // 
+            this.CancelPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelPrint.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CancelPrint.Location = new System.Drawing.Point(597, 295);
+            this.CancelPrint.Name = "CancelPrint";
+            this.CancelPrint.Size = new System.Drawing.Size(187, 46);
+            this.CancelPrint.TabIndex = 9;
+            this.CancelPrint.Text = "Отменить";
+            this.CancelPrint.UseVisualStyleBackColor = true;
             // 
             // RemainingStockBtn
             // 
@@ -392,17 +406,17 @@
             this.RemainingStockBtn.Text = "Остаток на складе";
             this.RemainingStockBtn.UseVisualStyleBackColor = true;
             // 
-            // CancelPrint
+            // RequestBtn
             // 
-            this.CancelPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelPrint.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CancelPrint.Location = new System.Drawing.Point(597, 295);
-            this.CancelPrint.Name = "CancelPrint";
-            this.CancelPrint.Size = new System.Drawing.Size(187, 46);
-            this.CancelPrint.TabIndex = 9;
-            this.CancelPrint.Text = "Отменить";
-            this.CancelPrint.UseVisualStyleBackColor = true;
+            this.RequestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RequestBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.RequestBtn.Location = new System.Drawing.Point(8, 91);
+            this.RequestBtn.Name = "RequestBtn";
+            this.RequestBtn.Size = new System.Drawing.Size(293, 32);
+            this.RequestBtn.TabIndex = 10;
+            this.RequestBtn.Text = "Заявка";
+            this.RequestBtn.UseVisualStyleBackColor = true;
             // 
             // CompositionRequestView
             // 
@@ -457,5 +471,6 @@
         private TabPage tabPage3;
         private Button CancelPrint;
         private Button RemainingStockBtn;
+        private Button RequestBtn;
     }
 }

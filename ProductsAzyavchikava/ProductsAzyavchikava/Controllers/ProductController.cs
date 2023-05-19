@@ -78,7 +78,6 @@ namespace ProductsAzyavchikava.Controllers
             _view.Cost = -1;
             _view.NDS = -1;
             _view.Markup = -1;
-            _view.Retail_Price = -1;
             _view.Production = string.Empty;
             _view.Weight_Per_Price = -1;
             _view.Weight = -1;
@@ -109,7 +108,6 @@ namespace ProductsAzyavchikava.Controllers
             model.Cost = _view.Cost;
             model.NDS = _view.NDS;
             model.Markup = _view.Markup;
-            model.Retail_Price = _view.Retail_Price;
             model.Production = _view.Production;
             model.Weight_Per_Price = _view.Weight_Per_Price;
             model.Weight = _view.Weight;
@@ -171,7 +169,6 @@ namespace ProductsAzyavchikava.Controllers
             _view.Cost = model.Cost;
             _view.NDS = model.NDS;
             _view.Markup = model.Markup;
-            _view.Retail_Price = model.Retail_Price;
             _view.Production = model.Production;
             _view.Weight_Per_Price= model.Weight_Per_Price;
             _view.Weight= model.Weight;

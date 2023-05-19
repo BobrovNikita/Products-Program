@@ -18,6 +18,9 @@ namespace ProductsAzyavchikava.Views.ViewModels
         [DisplayName("Дата")]
         public DateTime Date { get; set; }
 
+        [DisplayName("Дата поставки")]
+        public DateTime SupplyDate { get; set; }
+
         [DisplayName("Магазин")]
         public string Shop_Name { get;set; }
 

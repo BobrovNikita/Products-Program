@@ -7,23 +7,16 @@ using System.Threading.Tasks;
 
 namespace ProductsAzyavchikava.Views.Intefraces
 {
-    public interface IRequestView
+    public interface ISellView
     {
+
         Guid Id { get; set; }
         ShopViewModel ShopId { get; set; }
-        StorageViewModel StorageId { get; set; }
         DateTime Date { get; set; }
-        DateTime SupplyDate { get; set; }
-        int Product_Count { get; set; }
-        int Cost { get; set; }
-        int Number_Packages { get; set; }
-        int Weigh { get; set; }
-        string Car { get; set; }
-        string Driver { get; set; }
 
+        string PaymentMethod { get; set; }
+        string FIOSalesman { get; set; }
         string searchValue { get; set; }
-        DateTime firstDate { get; set; }
-        DateTime lastDate { get; set; }
         bool IsEdit { get; set; }
         bool IsSuccessful { get; set; }
         string Message { get; set; }
@@ -35,10 +28,8 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
-        event EventHandler SearchWithDateEvent;
 
-        void SetRequestBindingSource(BindingSource source);
-        void SetStorageBindingSource(BindingSource source);
+        void SetSellBindingSource(BindingSource source);
         void SetShopBindingSource(BindingSource source);
         void Show();
     }

@@ -92,7 +92,7 @@ namespace ProductsAzyavchikava.Controllers
             if (_view.ShopId == null || _view.StorageId == null)
             {
                 CleanViewFields();
-                _view.Message = "Values are not specified in the combobox";
+                _view.Message = "Нет значения в выпадающем списке";
                 return;
             }
 
@@ -101,6 +101,7 @@ namespace ProductsAzyavchikava.Controllers
             model.ShopId = _view.ShopId.Id;
             model.StorageId = _view.StorageId.Id;
             model.Date = _view.Date;
+            model.SupplyDate = _view.SupplyDate;
             model.Products_Count = _view.Product_Count;
             model.Cost = _view.Cost;
             model.Number_Packages = _view.Number_Packages;
@@ -158,7 +159,8 @@ namespace ProductsAzyavchikava.Controllers
             _view.Id = model.Id;
             _view.ShopId.Id = model.ShopId;
             _view.StorageId.Id = model.StorageId;
-            _view.Date = model.Date; 
+            _view.Date = model.Date;
+            _view.SupplyDate = model.SupplyDate;
             _view.Product_Count = model.Products_Count;
             _view.Cost = model.Cost;
             _view.Number_Packages = model.Number_Packages;

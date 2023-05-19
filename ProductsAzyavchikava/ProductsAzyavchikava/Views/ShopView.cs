@@ -48,6 +48,8 @@ namespace ProductsAzyavchikava.Views
                 {
                     NumberTxt.Text = value.ToString();
                 }
+                else
+                    NumberTxt.Text = string.Empty;
             }
         }
         public string Adress

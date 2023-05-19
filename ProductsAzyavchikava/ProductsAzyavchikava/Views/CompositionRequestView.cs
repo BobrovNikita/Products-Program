@@ -107,6 +107,7 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
         public event EventHandler RemainingStockEvent;
+        public event EventHandler RequestPrintEvent;
 
         public CompositionRequestView()
         {
@@ -220,6 +221,11 @@ namespace ProductsAzyavchikava.Views
             RemainingStockBtn.Click += delegate
             {
                 RemainingStockEvent.Invoke(this, EventArgs.Empty);
+            };
+
+            RequestBtn.Click += delegate
+            {
+                RequestPrintEvent.Invoke(this, EventArgs.Empty);
             };
         }
 

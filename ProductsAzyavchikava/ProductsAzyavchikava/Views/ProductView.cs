@@ -118,29 +118,6 @@ namespace ProductsAzyavchikava.Views
                     MarkupTxt.Text = string.Empty;
             }
         }
-        public int Retail_Price
-        {
-            get
-            {
-                if (!int.TryParse(RetailCostTxt.Text, out _))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return int.Parse(RetailCostTxt.Text);
-                }
-            }
-            set
-            {
-                if (value != -1)
-                {
-                    RetailCostTxt.Text = value.ToString();
-                }
-                else
-                    RetailCostTxt.Text = string.Empty;
-            }
-        }
         public string Production
         {
             get => ProductionTxt.Text;
@@ -330,14 +307,6 @@ namespace ProductsAzyavchikava.Views
                 }
             };
 
-            RetailCostTxt.KeyPress += (s, e) =>
-            {
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-                {
-                    e.Handled = true;
-                }
-            };
-
             Weight_Per_PriceTxt.KeyPress += (s, e) =>
             {
                 if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
@@ -367,7 +336,7 @@ namespace ProductsAzyavchikava.Views
         public void SetProductTypeBindingSource(BindingSource source)
         {
             ProductTypeTxb.DataSource = source;
-            ProductTypeTxb.DisplayMember = "Name";
+            ProductTypeTxb.DisplayMember = "Type";
             ProductTypeTxb.ValueMember = "Id";
         }
 

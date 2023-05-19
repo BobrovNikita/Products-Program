@@ -30,6 +30,9 @@ namespace ProductsAzyavchikava.Views
             ShopBtn.Click += delegate { LoadShop?.Invoke(this, EventArgs.Empty); };
             Shop_TypeBtn.Click += delegate { LoadShop_Type?.Invoke(this, EventArgs.Empty); };
             StorageBtn.Click += delegate { LoadStorage?.Invoke(this, EventArgs.Empty); };
+            SellsBtn.Click += delegate { LoadSell?.Invoke(this, EventArgs.Empty); };
+            CompositionSellingBtn.Click += delegate { LoadCompositionSell?.Invoke(this, EventArgs.Empty); };
+            ProductIntoStorageBtn.Click += delegate { LoadProductIntoStorage?.Invoke(this, EventArgs.Empty); };
             FormClosed += delegate { Application.Exit(); };
         }
 
@@ -41,5 +44,8 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler LoadShop;
         public event EventHandler LoadShop_Type;
         public event EventHandler LoadStorage;
+        public event EventHandler LoadSell;
+        public event EventHandler LoadCompositionSell;
+        public event EventHandler LoadProductIntoStorage;
     }
 }

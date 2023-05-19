@@ -49,6 +49,30 @@ namespace ProductsAzyavchikava.Migrations
                     b.ToTable("CompositionRequests");
                 });
 
+            modelBuilder.Entity("ProductsAzyavchikava.Model.CompositionSelling", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SellId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SellId");
+
+                    b.ToTable("Compositions");
+                });
+
             modelBuilder.Entity("ProductsAzyavchikava.Model.Product", b =>
                 {
                     b.Property<Guid>("ProductId")
@@ -84,9 +108,6 @@ namespace ProductsAzyavchikava.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("Retail_Price")
-                        .HasColumnType("int");
 
                     b.Property<Guid>("StorageId")
                         .HasColumnType("uniqueidentifier");
@@ -133,6 +154,30 @@ namespace ProductsAzyavchikava.Migrations
                     b.HasIndex("ShopId");
 
                     b.ToTable("ProductIntoShops");
+                });
+
+            modelBuilder.Entity("ProductsAzyavchikava.Model.ProductIntoStorage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("StorageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("StorageId");
+
+                    b.ToTable("ProductIntoStorages");
                 });
 
             modelBuilder.Entity("ProductsAzyavchikava.Model.Product_Type", b =>
@@ -190,6 +235,9 @@ namespace ProductsAzyavchikava.Migrations
                     b.Property<Guid>("StorageId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("SupplyDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Weigh")
                         .HasColumnType("int");
 
@@ -200,6 +248,35 @@ namespace ProductsAzyavchikava.Migrations
                     b.HasIndex("StorageId");
 
                     b.ToTable("Requests");
+                });
+
+            modelBuilder.Entity("ProductsAzyavchikava.Model.Sell", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FIOSalesman")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShopId");
+
+                    b.ToTable("Sells");
                 });
 
             modelBuilder.Entity("ProductsAzyavchikava.Model.Shop", b =>
@@ -301,6 +378,25 @@ namespace ProductsAzyavchikava.Migrations
                     b.Navigation("Request");
                 });
 
+            modelBuilder.Entity("ProductsAzyavchikava.Model.CompositionSelling", b =>
+                {
+                    b.HasOne("ProductsAzyavchikava.Model.Product", "Product")
+                        .WithMany("CompositionSellings")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("ProductsAzyavchikava.Model.Sell", "Sell")
+                        .WithMany("CompositionSellings")
+                        .HasForeignKey("SellId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Sell");
+                });
+
             modelBuilder.Entity("ProductsAzyavchikava.Model.Product", b =>
                 {
                     b.HasOne("ProductsAzyavchikava.Model.Product_Type", "Product_Type")
@@ -339,6 +435,25 @@ namespace ProductsAzyavchikava.Migrations
                     b.Navigation("Shop");
                 });
 
+            modelBuilder.Entity("ProductsAzyavchikava.Model.ProductIntoStorage", b =>
+                {
+                    b.HasOne("ProductsAzyavchikava.Model.Product", "Product")
+                        .WithMany("ProductIntoStorages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("ProductsAzyavchikava.Model.Storage", "Storage")
+                        .WithMany("ProductIntoStorages")
+                        .HasForeignKey("StorageId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Storage");
+                });
+
             modelBuilder.Entity("ProductsAzyavchikava.Model.Request", b =>
                 {
                     b.HasOne("ProductsAzyavchikava.Model.Shop", "Shop")
@@ -356,6 +471,17 @@ namespace ProductsAzyavchikava.Migrations
                     b.Navigation("Shop");
 
                     b.Navigation("Storage");
+                });
+
+            modelBuilder.Entity("ProductsAzyavchikava.Model.Sell", b =>
+                {
+                    b.HasOne("ProductsAzyavchikava.Model.Shop", "Shop")
+                        .WithMany("Sells")
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Shop");
                 });
 
             modelBuilder.Entity("ProductsAzyavchikava.Model.Shop_Type", b =>
@@ -381,7 +507,11 @@ namespace ProductsAzyavchikava.Migrations
                 {
                     b.Navigation("CompositionRequests");
 
+                    b.Navigation("CompositionSellings");
+
                     b.Navigation("ProductIntoShops");
+
+                    b.Navigation("ProductIntoStorages");
                 });
 
             modelBuilder.Entity("ProductsAzyavchikava.Model.Product_Type", b =>
@@ -396,17 +526,26 @@ namespace ProductsAzyavchikava.Migrations
                     b.Navigation("CompositionRequests");
                 });
 
+            modelBuilder.Entity("ProductsAzyavchikava.Model.Sell", b =>
+                {
+                    b.Navigation("CompositionSellings");
+                });
+
             modelBuilder.Entity("ProductsAzyavchikava.Model.Shop", b =>
                 {
                     b.Navigation("ProductsIntoShops");
 
                     b.Navigation("Requests");
 
+                    b.Navigation("Sells");
+
                     b.Navigation("Shop_Types");
                 });
 
             modelBuilder.Entity("ProductsAzyavchikava.Model.Storage", b =>
                 {
+                    b.Navigation("ProductIntoStorages");
+
                     b.Navigation("Products");
 
                     b.Navigation("Requests");

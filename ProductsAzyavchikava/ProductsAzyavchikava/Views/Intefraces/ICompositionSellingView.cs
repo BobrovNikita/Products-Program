@@ -1,29 +1,19 @@
 ﻿using ProductsAzyavchikava.Views.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProductsAzyavchikava.Views.Intefraces
 {
-    public interface IProductView
+    public interface ICompositionSellingView
     {
         Guid Id { get; set; }
-        Product_TypeViewModel ProductTypeId { get; set; }
-        StorageViewModel StorageId { get; set; }
-        public string PName { get; set; }
-        public string VendorCode { get; set; }
-        public string Hatch { get; set; }
-        public int Cost { get; set; }
-        public int NDS { get; set; }
-        public int Markup { get; set; }
-        public string Production { get; set; }
-        public int Weight_Per_Price { get; set; }
-        public int Weight { get; set; }
-        public bool Availability { get; set; }
+        SellViewModel SellId { get; set; }
+        ProductViewModel ProductId { get; set; }
 
+        int Count { get; set; }
         string searchValue { get; set; }
         bool IsEdit { get; set; }
         bool IsSuccessful { get; set; }
@@ -36,10 +26,11 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
+        event EventHandler CheckPrintEvent;
 
+        void SetCompositionSellingBindingSource(BindingSource source);
+        void SetSellBindingSource(BindingSource source);
         void SetProductBindingSource(BindingSource source);
-        void SetStorageBindingSource(BindingSource source);
-        void SetProductTypeBindingSource(BindingSource source);
         void Show();
     }
 }

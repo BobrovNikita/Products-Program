@@ -27,6 +27,35 @@ namespace ProductsAzyavchikava.Controllers
             _mainView.LoadShop += LoadShop;
             _mainView.LoadShop_Type += LoadShop_Type;
             _mainView.LoadStorage += LoadStorage;
+            _mainView.LoadSell += LoadSell;
+            _mainView.LoadCompositionSell += LoadCompositionSell;
+            _mainView.LoadProductIntoStorage += LoadProductIntoStorage;
+        }
+
+        private void LoadProductIntoStorage(object? sender, EventArgs e)
+        {
+            IProductIntoStorageView view = ProductIntoStorageView.GetInstance((MainView)_mainView);
+            IRepository<ProductIntoStorageViewModel> repository = new ProductIntoStorageRepository(new ApplicationContext());
+            IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            new ProductIntoStorageController(view, repository, productRepository, storageRepository);
+        }
+
+        private void LoadCompositionSell(object? sender, EventArgs e)
+        {
+            ICompositionSellingView view = CompositionSellingView.GetInstance((MainView)_mainView);
+            ICompositionSellingWithBaseRepository repository = new CompositionSellingRepository(new ApplicationContext());
+            IRepository<SellViewModel> sellRepository = new SellRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            new CompositionSellingController(view, repository, sellRepository, productRepository);
+        }
+
+        private void LoadSell(object? sender, EventArgs e)
+        {
+            ISellView view = SellView.GetInstance((MainView)_mainView);
+            IRepository<SellViewModel> repository = new SellRepository(new ApplicationContext());
+            IRepository<ShopViewModel> shopRepository = new ShopRepository(new ApplicationContext());
+            new SellController(view, repository, shopRepository);
         }
 
         private void LoadCompositionRequest(object? sender, EventArgs e)

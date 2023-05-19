@@ -15,87 +15,50 @@ namespace ProductsAzyavchikava.Repositories
         {
         }
 
-        public void Create(ProductViewModel viewModel)
+        public void Create(ProductViewModel model)
         {
             using(var context = new ApplicationContext())
             {
-                Product model = new Product();
-                model.ProductId = viewModel.ProductId;
-                model.Product_TypeId = viewModel.Product_TypeId;
-                model.StorageId = viewModel.StorageId;
-                model.Name = viewModel.PName;
-                model.VendorCode= viewModel.VendorCode;
-                model.Hatch = viewModel.Hatch;
-                model.Cost = viewModel.Cost;
-                model.NDS = viewModel.NDS;
-                model.Markup = viewModel.Markup;
-                model.Retail_Price= viewModel.Retail_Price;
-                model.Production = viewModel.Production;
-                model.Weight_Per_Price= viewModel.Weight_Per_Price;
-                model.Weight = viewModel.Weight;
-                model.Availability = viewModel.Availability;
+                var entity = ConvertToEntity(model);
 
-                new Common.ModelDataValidation().Validate(model);
+                new Common.ModelDataValidation().Validate(entity);
 
-                context.Products.Add(model);
+                context.Products.Add(entity);
                 context.SaveChanges();
             }
             
         }
 
-        public void Delete(ProductViewModel viewModel)
+        public void Delete(ProductViewModel model)
         {
             using(var context = new ApplicationContext())
             {
-                Product model = new Product();
-                model.ProductId = viewModel.ProductId;
-                model.Product_TypeId = viewModel.Product_TypeId;
-                model.StorageId = viewModel.StorageId;
-                model.Name = viewModel.PName;
-                model.VendorCode = viewModel.VendorCode;
-                model.Hatch = viewModel.Hatch;
-                model.Cost = viewModel.Cost;
-                model.NDS = viewModel.NDS;
-                model.Markup = viewModel.Markup;
-                model.Retail_Price = viewModel.Retail_Price;
-                model.Production = viewModel.Production;
-                model.Weight_Per_Price = viewModel.Weight_Per_Price;
-                model.Weight = viewModel.Weight;
-                model.Availability = viewModel.Availability;
+                var entity = ConvertToEntity(model);
 
-                context.Products.Remove(model); 
+                context.Products.Remove(entity); 
                 context.SaveChanges();
             }
         }
 
         public IEnumerable<ProductViewModel> GetAll()
         {
-            return db.Products.Include(pt => pt.Product_Type).Include(s => s.Storage)
-                .Select(o => new ProductViewModel()
+            using(var context = new ApplicationContext())
+            {
+                var entities = context.Products.Include(pt => pt.Product_Type).Include(s => s.Storage).ToList();
+                List<ProductViewModel> viewModels = new List<ProductViewModel>();
+                foreach(var e in entities)
                 {
-                    ProductId = o.ProductId,
-                    Product_TypeId = o.Product_TypeId,
-                    StorageId= o.StorageId,
-                    PName = o.Name,
-                    PType_Name = o.Product_Type.Product_Name,
-                    Product_Type = o.Product_Type.Type_Name,
-                    VendorCode= o.VendorCode,
-                    Hatch = o.Hatch,
-                    Cost = o.Cost,
-                    NDS = o.NDS,
-                    Markup= o.Markup,
-                    Retail_Price= o.Retail_Price,
-                    Production= o.Production,
-                    Weight_Per_Price= o.Weight_Per_Price,
-                    Weight = o.Weight,
-                    Availability= o.Availability,
-                    Number_Storage = o.Storage.Storage_Number
-                }).ToList();
+                    viewModels.Add(ConvertToViewModel((e)));
+                }
+
+                return viewModels;
+            }
+            
         }
 
         public IEnumerable<ProductViewModel> GetAllByValue(string value)
         {
-            var result = db.Products.Include(pt => pt.Product_Type)
+            var entities = db.Products.Include(pt => pt.Product_Type)
                               .Include(s => s.Storage)
                               .Where
                               (p => p.Name.Contains(value) ||
@@ -107,77 +70,33 @@ namespace ProductsAzyavchikava.Repositories
                                p.Storage.Storage_Number.ToString().Contains(value)
                               ).ToList();
 
-            return result.Select(o => new ProductViewModel()
+            List<ProductViewModel> viewModels = new List<ProductViewModel>();
+
+            foreach (var e in entities)
             {
-                ProductId = o.ProductId,
-                Product_TypeId = o.Product_TypeId,
-                StorageId = o.StorageId,
-                PName = o.Name,
-                PType_Name = o.Product_Type.Product_Name,
-                Product_Type = o.Product_Type.Type_Name,
-                VendorCode = o.VendorCode,
-                Hatch = o.Hatch,
-                Cost = o.Cost,
-                NDS = o.NDS,
-                Markup = o.Markup,
-                Retail_Price = o.Retail_Price,
-                Production = o.Production,
-                Weight_Per_Price = o.Weight_Per_Price,
-                Weight = o.Weight,
-                Availability = o.Availability,
-                Number_Storage = o.Storage.Storage_Number
-            }).ToList();
+                viewModels.Add(ConvertToViewModel((e)));
+            }
+
+            return viewModels;
         }
 
         public ProductViewModel GetModel(Guid id)
         {
-            var result = db.Products.Include(pt => pt.Product_Type).Include(s => s.Storage).First(p => p.ProductId== id);
+            var entity = db.Products.Include(pt => pt.Product_Type).Include(s => s.Storage).First(p => p.ProductId== id);
 
-            ProductViewModel model = new ProductViewModel();
-            model.ProductId = result.ProductId;
-            model.Product_TypeId = result.Product_TypeId;
-            model.StorageId = result.StorageId;
-            model.PName = result.Name;
-            model.PType_Name = result.Product_Type.Product_Name;
-            model.Product_Type = result.Product_Type.Type_Name;
-            model.VendorCode = result.VendorCode;
-            model.Hatch = result.Hatch;
-            model.Cost = result.Cost;
-            model.NDS = result.NDS;
-            model.Markup = result.Markup;
-            model.Retail_Price = result.Retail_Price;
-            model.Production = result.Production;
-            model.Weight_Per_Price = result.Weight_Per_Price;
-            model.Weight = result.Weight;
-            model.Availability = result.Availability;
-            model.Number_Storage = result.Storage.Storage_Number;
+            var viewModel = ConvertToViewModel(entity);
 
-            return model;
+            return viewModel;
         }
 
-        public void Update(ProductViewModel viewModel)
+        public void Update(ProductViewModel model)
         {
             using (var context = new ApplicationContext())
             {
-                Product model = new Product();
-                model.ProductId = viewModel.ProductId;
-                model.Product_TypeId = viewModel.Product_TypeId;
-                model.StorageId = viewModel.StorageId;
-                model.Name = viewModel.PName;
-                model.VendorCode = viewModel.VendorCode;
-                model.Hatch = viewModel.Hatch;
-                model.Cost = viewModel.Cost;
-                model.NDS = viewModel.NDS;
-                model.Markup = viewModel.Markup;
-                model.Retail_Price = viewModel.Retail_Price;
-                model.Production = viewModel.Production;
-                model.Weight_Per_Price = viewModel.Weight_Per_Price;
-                model.Weight = viewModel.Weight;
-                model.Availability = viewModel.Availability;
+                var entity = ConvertToEntity(model);
+                new Common.ModelDataValidation().Validate(entity);
 
-                new Common.ModelDataValidation().Validate(model);
-
-                context.Products.Update(model);
+                context.Products.Update(entity);
                 context.SaveChanges();
             }
         }
@@ -201,6 +120,50 @@ namespace ProductsAzyavchikava.Repositories
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        private Product ConvertToEntity(ProductViewModel model)
+        {
+            var entity = new Product();
+            entity.ProductId = model.ProductId;
+            entity.Product_TypeId = model.Product_TypeId;
+            entity.StorageId = model.StorageId;
+            entity.Name = model.PName;
+            entity.VendorCode = model.VendorCode;
+            entity.Hatch = model.Hatch;
+            entity.Cost = model.Cost;
+            entity.NDS = model.NDS;
+            entity.Markup = model.Markup;
+            entity.Production = model.Production;
+            entity.Weight_Per_Price = model.Weight_Per_Price;
+            entity.Weight = model.Weight;
+            entity.Availability = model.Availability;
+
+            return entity;
+        }
+
+        private ProductViewModel ConvertToViewModel(Product model)
+        {
+            var viewModel = new ProductViewModel();
+            viewModel.ProductId = model.ProductId;
+            viewModel.Product_TypeId = model.Product_TypeId;
+            viewModel.StorageId = model.StorageId;
+            viewModel.PName = model.Name;
+            viewModel.PType_Name = model.Product_Type.Product_Name;
+            viewModel.Product_Type = model.Product_Type.Type_Name;
+            viewModel.VendorCode = model.VendorCode;
+            viewModel.Hatch = model.Hatch;
+            viewModel.Cost = model.Cost;
+            viewModel.NDS = model.NDS;
+            viewModel.Markup = model.Markup;
+            viewModel.Retail_Price = (model.Cost + (model.Cost / 100 * model.NDS)) + ((model.Cost + (model.Cost / 100 * model.NDS))/100 * model.Markup);
+            viewModel.Production = model.Production;
+            viewModel.Weight_Per_Price = model.Weight_Per_Price;
+            viewModel.Weight = model.Weight;
+            viewModel.Availability = model.Availability;
+            viewModel.Number_Storage = model.Storage.Storage_Number;
+
+            return viewModel;
         }
     }
 }

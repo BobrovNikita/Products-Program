@@ -19,7 +19,7 @@ namespace ProductsAzyavchikava.Common
             {
                 var dt = (DateTime)value;
 
-                if (dt >= DateTime.Now && dt.Year <= DateTime.Now.Year + 10)
+                if (dt.Day >= DateTime.Now.Day-1 && dt.Month >= DateTime.Now.Month && dt.Year <= DateTime.Now.Year + 10)
                 {
                     return true;
                 }

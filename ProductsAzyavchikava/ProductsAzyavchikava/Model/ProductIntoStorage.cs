@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace ProductsAzyavchikava.Model
 {
-    public class ProductIntoShop
+    public class ProductIntoStorage
     {
-        public Guid ProductIntoShopId { get; set; }
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Количество это обязательное поле")]
-        [Range(1, 10000, ErrorMessage = "Количество должно быть от 1 до 10000")]
+        [Range(1, 1000, ErrorMessage = "Количество должно быть от 1 до 1000")]
         public int Count { get; set; }
 
         [Required(ErrorMessage = "Товар это обязательное поле")]
         public Guid ProductId { get; set; }
 
-        [Required(ErrorMessage = "Магазин это обязательное поле")]
-        public Guid ShopId { get; set; }
-
-        public Product Product { get; set; }
-        public Shop Shop { get; set; }
+        [Required(ErrorMessage = "Склад это обязательное поле")]
+        public Guid StorageId { get; set; }
+        public Storage Storage { get; set; }
+        public Product Product { get; set; }    
+        
     }
 }

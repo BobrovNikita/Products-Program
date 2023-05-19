@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CompositionSellingBtn = new System.Windows.Forms.Button();
+            this.SellsBtn = new System.Windows.Forms.Button();
             this.StorageBtn = new System.Windows.Forms.Button();
             this.Shop_TypeBtn = new System.Windows.Forms.Button();
             this.ShopBtn = new System.Windows.Forms.Button();
@@ -37,12 +39,16 @@
             this.Product_TypeBtn = new System.Windows.Forms.Button();
             this.ProductBtn = new System.Windows.Forms.Button();
             this.CompositionRequestBtn = new System.Windows.Forms.Button();
+            this.ProductIntoStorageBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.ProductIntoStorageBtn);
+            this.panel1.Controls.Add(this.CompositionSellingBtn);
+            this.panel1.Controls.Add(this.SellsBtn);
             this.panel1.Controls.Add(this.StorageBtn);
             this.panel1.Controls.Add(this.Shop_TypeBtn);
             this.panel1.Controls.Add(this.ShopBtn);
@@ -54,8 +60,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(228, 503);
+            this.panel1.Size = new System.Drawing.Size(228, 552);
             this.panel1.TabIndex = 0;
+            // 
+            // CompositionSellingBtn
+            // 
+            this.CompositionSellingBtn.FlatAppearance.BorderSize = 0;
+            this.CompositionSellingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompositionSellingBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CompositionSellingBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CompositionSellingBtn.Location = new System.Drawing.Point(3, 12);
+            this.CompositionSellingBtn.Name = "CompositionSellingBtn";
+            this.CompositionSellingBtn.Size = new System.Drawing.Size(222, 40);
+            this.CompositionSellingBtn.TabIndex = 8;
+            this.CompositionSellingBtn.Text = "Состав продажи";
+            this.CompositionSellingBtn.UseVisualStyleBackColor = true;
+            // 
+            // SellsBtn
+            // 
+            this.SellsBtn.FlatAppearance.BorderSize = 0;
+            this.SellsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SellsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SellsBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SellsBtn.Location = new System.Drawing.Point(6, 58);
+            this.SellsBtn.Name = "SellsBtn";
+            this.SellsBtn.Size = new System.Drawing.Size(222, 40);
+            this.SellsBtn.TabIndex = 7;
+            this.SellsBtn.Text = "Продажи";
+            this.SellsBtn.UseVisualStyleBackColor = true;
             // 
             // StorageBtn
             // 
@@ -63,7 +95,7 @@
             this.StorageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StorageBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.StorageBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.StorageBtn.Location = new System.Drawing.Point(3, 440);
+            this.StorageBtn.Location = new System.Drawing.Point(3, 426);
             this.StorageBtn.Name = "StorageBtn";
             this.StorageBtn.Size = new System.Drawing.Size(222, 40);
             this.StorageBtn.TabIndex = 1;
@@ -76,7 +108,7 @@
             this.Shop_TypeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Shop_TypeBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Shop_TypeBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Shop_TypeBtn.Location = new System.Drawing.Point(3, 394);
+            this.Shop_TypeBtn.Location = new System.Drawing.Point(3, 380);
             this.Shop_TypeBtn.Name = "Shop_TypeBtn";
             this.Shop_TypeBtn.Size = new System.Drawing.Size(222, 40);
             this.Shop_TypeBtn.TabIndex = 6;
@@ -89,7 +121,7 @@
             this.ShopBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ShopBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ShopBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ShopBtn.Location = new System.Drawing.Point(3, 348);
+            this.ShopBtn.Location = new System.Drawing.Point(3, 334);
             this.ShopBtn.Name = "ShopBtn";
             this.ShopBtn.Size = new System.Drawing.Size(222, 40);
             this.ShopBtn.TabIndex = 5;
@@ -102,7 +134,7 @@
             this.RequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RequestBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.RequestBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.RequestBtn.Location = new System.Drawing.Point(3, 302);
+            this.RequestBtn.Location = new System.Drawing.Point(3, 288);
             this.RequestBtn.Name = "RequestBtn";
             this.RequestBtn.Size = new System.Drawing.Size(222, 40);
             this.RequestBtn.TabIndex = 4;
@@ -115,7 +147,7 @@
             this.ProductIntoShopBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductIntoShopBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ProductIntoShopBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ProductIntoShopBtn.Location = new System.Drawing.Point(3, 256);
+            this.ProductIntoShopBtn.Location = new System.Drawing.Point(3, 242);
             this.ProductIntoShopBtn.Name = "ProductIntoShopBtn";
             this.ProductIntoShopBtn.Size = new System.Drawing.Size(222, 40);
             this.ProductIntoShopBtn.TabIndex = 3;
@@ -128,7 +160,7 @@
             this.Product_TypeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Product_TypeBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Product_TypeBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Product_TypeBtn.Location = new System.Drawing.Point(3, 210);
+            this.Product_TypeBtn.Location = new System.Drawing.Point(3, 196);
             this.Product_TypeBtn.Name = "Product_TypeBtn";
             this.Product_TypeBtn.Size = new System.Drawing.Size(222, 40);
             this.Product_TypeBtn.TabIndex = 2;
@@ -141,7 +173,7 @@
             this.ProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ProductBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ProductBtn.Location = new System.Drawing.Point(3, 164);
+            this.ProductBtn.Location = new System.Drawing.Point(3, 150);
             this.ProductBtn.Name = "ProductBtn";
             this.ProductBtn.Size = new System.Drawing.Size(222, 40);
             this.ProductBtn.TabIndex = 1;
@@ -154,18 +186,31 @@
             this.CompositionRequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CompositionRequestBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CompositionRequestBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CompositionRequestBtn.Location = new System.Drawing.Point(3, 118);
+            this.CompositionRequestBtn.Location = new System.Drawing.Point(3, 104);
             this.CompositionRequestBtn.Name = "CompositionRequestBtn";
             this.CompositionRequestBtn.Size = new System.Drawing.Size(222, 40);
             this.CompositionRequestBtn.TabIndex = 0;
             this.CompositionRequestBtn.Text = "Состав заявки";
             this.CompositionRequestBtn.UseVisualStyleBackColor = true;
             // 
+            // ProductIntoStorageBtn
+            // 
+            this.ProductIntoStorageBtn.FlatAppearance.BorderSize = 0;
+            this.ProductIntoStorageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductIntoStorageBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProductIntoStorageBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ProductIntoStorageBtn.Location = new System.Drawing.Point(3, 472);
+            this.ProductIntoStorageBtn.Name = "ProductIntoStorageBtn";
+            this.ProductIntoStorageBtn.Size = new System.Drawing.Size(222, 40);
+            this.ProductIntoStorageBtn.TabIndex = 9;
+            this.ProductIntoStorageBtn.Text = "Наличие на складе";
+            this.ProductIntoStorageBtn.UseVisualStyleBackColor = true;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 503);
+            this.ClientSize = new System.Drawing.Size(992, 552);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "MainView";
@@ -186,5 +231,8 @@
         private Button Product_TypeBtn;
         private Button ProductBtn;
         private Button CompositionRequestBtn;
+        private Button SellsBtn;
+        private Button CompositionSellingBtn;
+        private Button ProductIntoStorageBtn;
     }
 }

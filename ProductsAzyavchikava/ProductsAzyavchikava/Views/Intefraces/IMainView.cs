@@ -16,5 +16,8 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler LoadShop;
         event EventHandler LoadShop_Type;
         event EventHandler LoadStorage;
+        event EventHandler LoadSell;
+        event EventHandler LoadCompositionSell;
+        event EventHandler LoadProductIntoStorage;
     }
 }

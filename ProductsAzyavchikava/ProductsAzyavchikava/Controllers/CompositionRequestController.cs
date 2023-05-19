@@ -47,6 +47,7 @@ namespace ProductsAzyavchikava.Controllers
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
             view.RemainingStockEvent += RemainingStock;
+            view.RequestPrintEvent += RequestPrintEvent;
 
             LoadProductTypeList();
             LoadCombobox();
@@ -56,6 +57,31 @@ namespace ProductsAzyavchikava.Controllers
             view.SetProductBindingSource(ProductBindingSource);
 
             _view.Show();
+        }
+
+        private void RequestPrintEvent(object? sender, EventArgs e)
+        {
+            var viewModel = (CompositionRequestViewModel)compositionRequestBindingSource.Current;
+            var products = _repository.GetAll().Where(p => p.RequestId == viewModel.RequestId);
+
+            Word.Application wApp = new Word.Application();
+            wApp.Visible = true;
+            object missing = Type.Missing;
+            object falseValue = false;
+            Word.Document wordDocument = wApp.Documents.Open(Path.Combine(System.Windows.Forms.Application.StartupPath, Directory.GetCurrentDirectory() + "\\Заявка.docx"));
+            Word.Table tb = wordDocument.Tables[1];
+            int count = 0;
+            foreach (var rw in products)
+            {
+
+                count++;
+                Word.Row r = tb.Rows.Add();
+                r.Cells[1].Range.Text = count.ToString();
+                r.Cells[2].Range.Text = rw.ProductName.ToString();
+                r.Cells[3].Range.Text = rw.Count.ToString();
+
+            }
+            tb.Rows[2].Delete(); // удаляем пустую строку после шапки таблицы
         }
 
         private void LoadProductTypeList()

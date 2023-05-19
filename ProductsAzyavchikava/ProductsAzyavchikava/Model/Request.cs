@@ -12,37 +12,42 @@ namespace ProductsAzyavchikava.Model
     {
         public Guid RequestId { get; set; }
 
-        [Required(ErrorMessage = "Date is required field")]
-        [CheckDate(ErrorMessage = "Date must be today or no more than 10 years")]
+        [Required(ErrorMessage = "Дата это обязательное поле")]
+        [CheckDate(ErrorMessage = "Дата должна быть между сегодня и 10 лет вперед")]
         public DateTime Date { get; set; }
 
-        [Required(ErrorMessage = "Product count is required field")]
-        [Range(1, 10000, ErrorMessage = "Product count must be between 1 and 10000")]
+        [Required(ErrorMessage = "Количество товаров это обязательное поле")]
+        [Range(1, 10000, ErrorMessage = "Количество товаров должно быть между 1 и 10000")]
         public int Products_Count { get; set; }
 
-        [Required(ErrorMessage = "Cost is required field")]
-        [Range(1, 10000, ErrorMessage = "Cost must be between 1 and 10000")]
+        [Required(ErrorMessage = "Стоимость заявки это обязательное поле")]
+        [Range(1, 10000, ErrorMessage = "Стоимость заявки должно быть между 1 и 10000")]
         public int Request_Cost { get; set; }
 
-        [Required(ErrorMessage = "Number Packeges is required field")]
-        [Range(1, 5000, ErrorMessage = "Number Packeges must be between 1 and 5000")]
+        [Required(ErrorMessage = "Количество грузовых мест это обязательное поле")]
+        [Range(1, 5000, ErrorMessage = "Количество грузовых мест должно быть от 1 до 5000")]
         public int Number_Packages { get; set; }
 
-        [Required(ErrorMessage = "Weight is required field")]
-        [Range(1, 10000, ErrorMessage = "Weight must be between 1 and 10000")]
+        [Required(ErrorMessage = "Масса это обязательное поле")]
+        [Range(1, 10000, ErrorMessage = "Масса должна быть от 1 до 10000")]
         public int Weigh { get; set; }
 
-        [Required(ErrorMessage = "Car is required field")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Car name must be between 3 and 50 symbols")]
+        [Required(ErrorMessage = "Машина это обязательное поле")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Название машины должно содержать от 3 до 50 символов")]
         public string Car { get; set; }
 
-        [Required(ErrorMessage = "Driver is required field")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Driver name must be between 3 and 50 symbols")]
+        [Required(ErrorMessage = "Водитель это обязательное поле")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Водитель должен содержать от 3-х до 50 символов")]
         public string Driver { get; set; }
 
-        [Required(ErrorMessage = "Shop ID is required field")]
+
+        [Required(ErrorMessage = "Дата поставки это обязательное поле")]
+        [CheckDate(ErrorMessage = "Дата поставки должна быть от сегодняшнего дня и на 10 лет вперед")]
+        public DateTime SupplyDate { get; set; }
+
+        [Required(ErrorMessage = "Магазин это обязательное поле")]
         public Guid ShopId { get; set; }
-        [Required(ErrorMessage = "Storage ID is required field")]
+        [Required(ErrorMessage = "Склад это обязательное поле")]
         public Guid StorageId { get; set; }
 
         
