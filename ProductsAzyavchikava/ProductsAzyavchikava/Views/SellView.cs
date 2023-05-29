@@ -61,6 +61,7 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        public event EventHandler CompositionSellingShow;
 
         public SellView()
         {
@@ -140,6 +141,11 @@ namespace ProductsAzyavchikava.Views
                 CancelEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Add(tabPage1);
                 tabControl1.TabPages.Remove(tabPage2);
+            };
+
+            CompositionSellingBtn.Click += delegate
+            {
+                CompositionSellingShow?.Invoke(this, EventArgs.Empty);
             };
         }
 

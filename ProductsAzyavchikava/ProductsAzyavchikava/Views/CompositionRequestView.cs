@@ -56,7 +56,7 @@ namespace ProductsAzyavchikava.Views
                     CountTxt.Text = string.Empty;
             }
         }
-        public int Sum
+        public double Sum
         {
             get
             {
@@ -108,6 +108,7 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler CancelEvent;
         public event EventHandler RemainingStockEvent;
         public event EventHandler RequestPrintEvent;
+        public event EventHandler RequestOpen;
 
         public CompositionRequestView()
         {
@@ -115,7 +116,10 @@ namespace ProductsAzyavchikava.Views
             AssosiateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPage2);
             tabControl1.TabPages.Remove(tabPage3);
-            CloseBtn.Click += delegate { this.Close(); };
+            CloseBtn.Click += delegate
+            {
+                RequestOpen?.Invoke(this, EventArgs.Empty);
+            };
             IdTxt.Text = Guid.Empty.ToString();
         }
 

@@ -18,7 +18,7 @@ namespace ProductsAzyavchikava.Model
 
         [Required(ErrorMessage = "Сумма это обязательное поле")]
         [Range(1, 50000, ErrorMessage = "Сумма должна быть от 1 до 50000")]
-        public int Sum { get; set; }
+        public double Sum { get; set; }
 
         [Required(ErrorMessage = "Заявка это обязательное поле")]
         public Guid RequestId { get; set; }

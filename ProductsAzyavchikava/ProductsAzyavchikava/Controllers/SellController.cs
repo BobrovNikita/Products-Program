@@ -1,4 +1,5 @@
 ﻿using ProductsAzyavchikava.Repositories;
+using ProductsAzyavchikava.Views;
 using ProductsAzyavchikava.Views.Intefraces;
 using ProductsAzyavchikava.Views.ViewModels;
 using System;
@@ -12,6 +13,7 @@ namespace ProductsAzyavchikava.Controllers
     public class SellController
     {
         private readonly ISellView _view;
+        private readonly IMainView _mainView;
         private readonly IRepository<SellViewModel> _repository;
         private readonly IRepository<ShopViewModel> _shopRepository;
 
@@ -21,11 +23,12 @@ namespace ProductsAzyavchikava.Controllers
         private IEnumerable<SellViewModel>? _sells;
         private IEnumerable<ShopViewModel>? _shops;
 
-        public SellController(ISellView view, IRepository<SellViewModel> repository, IRepository<ShopViewModel> shopRepository)
+        public SellController(ISellView view, IRepository<SellViewModel> repository, IRepository<ShopViewModel> shopRepository, IMainView mainView)
         {
             _view = view;
             _repository = repository;
             _shopRepository = shopRepository;
+            _mainView = mainView;
 
             sellBindingSource = new BindingSource();
             shopBindingSource = new BindingSource();
@@ -36,6 +39,7 @@ namespace ProductsAzyavchikava.Controllers
             view.DeleteEvent += DeleteSelected;
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
+            view.CompositionSellingShow += CompositionSellingOpen;
 
             LoadSellsList();
             LoadCombobox();
@@ -44,6 +48,15 @@ namespace ProductsAzyavchikava.Controllers
             view.SetShopBindingSource(shopBindingSource);
 
             _view.Show();
+        }
+
+        private void CompositionSellingOpen(object? sender, EventArgs e)
+        {
+            ICompositionSellingView view = CompositionSellingView.GetInstance((MainView)_mainView);
+            ICompositionSellingWithBaseRepository repository = new CompositionSellingRepository(new ApplicationContext());
+            IRepository<SellViewModel> sellRepository = new SellRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            new CompositionSellingController(view, repository, sellRepository, productRepository, _mainView);
         }
 
         private void LoadSellsList()

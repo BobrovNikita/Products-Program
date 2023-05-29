@@ -85,13 +85,17 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
         public event EventHandler AktGettingEvent;
+        public event EventHandler StorageOpen;
 
         public ProductIntoStorageView()
         {
             InitializeComponent();
             AssosiateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPage2);
-            CloseBtn.Click += delegate { this.Close(); };
+            CloseBtn.Click += delegate 
+            {
+                StorageOpen?.Invoke(this, EventArgs.Empty);
+            };
             IdTxt.Text = Guid.Empty.ToString();
         }
 
@@ -115,22 +119,6 @@ namespace ProductsAzyavchikava.Views
                 tabControl1.TabPages.Add(tabPage2);
                 tabControl1.TabPages.Remove(tabPage1);
                 tabPage2.Text = "Добавление";
-            };
-
-            //Edit
-            EditBtn.Click += delegate
-            {
-                if (dataGridView1.Rows.Count >= 1)
-                {
-                    tabControl1.TabPages.Remove(tabPage1);
-                    tabControl1.TabPages.Add(tabPage2);
-                    EditEvent?.Invoke(this, EventArgs.Empty);
-                    tabPage2.Text = "Редактирование";
-                }
-                else
-                {
-                    MessageBox.Show("You didn't choose some redord");
-                }
             };
 
             //Delete

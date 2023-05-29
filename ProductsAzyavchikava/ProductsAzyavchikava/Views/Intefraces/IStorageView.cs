@@ -26,6 +26,7 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
+        event EventHandler ProductIntoStorageOpen;
 
         void SetStorageBindingSource(BindingSource source);
         void Show();

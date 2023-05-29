@@ -26,15 +26,15 @@ namespace ProductsAzyavchikava.Model
 
         [Required(ErrorMessage = "Цена это обязательное поле")]
         [Range(1, 1000, ErrorMessage = "Цена должна быть от 1 до 1000")]
-        public int Cost { get; set; }
+        public double Cost { get; set; }
 
         [Required(ErrorMessage = "НДС это обязательное поле")]
         [Range(1, 1000, ErrorMessage = "НДС должен быть от 1 до 1000")]
-        public int NDS { get; set; }
+        public double NDS { get; set; }
 
         [Required(ErrorMessage = "Наценка это обязательное поле")]
         [Range(1, 1000, ErrorMessage = "Наценка должна быть от 1 до 1000")]
-        public int Markup { get; set; }
+        public double Markup { get; set; }
 
         [Required(ErrorMessage = "Производство это обязательное поле")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Производство должно быть от 3 до 50 символов")]

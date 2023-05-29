@@ -51,6 +51,7 @@
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.PurposeTxt = new System.Windows.Forms.TextBox();
             this.NumberTxt = new System.Windows.Forms.TextBox();
+            this.ProductIntoStorageBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ProductIntoStorageBtn);
             this.tabPage1.Controls.Add(this.DeleteBtn);
             this.tabPage1.Controls.Add(this.EditBtn);
             this.tabPage1.Controls.Add(this.AddBtn);
@@ -324,6 +326,18 @@
             this.NumberTxt.Size = new System.Drawing.Size(213, 25);
             this.NumberTxt.TabIndex = 0;
             // 
+            // ProductIntoStorageBtn
+            // 
+            this.ProductIntoStorageBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProductIntoStorageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductIntoStorageBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProductIntoStorageBtn.Location = new System.Drawing.Point(630, 199);
+            this.ProductIntoStorageBtn.Name = "ProductIntoStorageBtn";
+            this.ProductIntoStorageBtn.Size = new System.Drawing.Size(146, 59);
+            this.ProductIntoStorageBtn.TabIndex = 7;
+            this.ProductIntoStorageBtn.Text = "Наличие на складе";
+            this.ProductIntoStorageBtn.UseVisualStyleBackColor = true;
+            // 
             // StorageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -370,5 +384,6 @@
         private TextBox IdTxt;
         private TextBox PurposeTxt;
         private TextBox NumberTxt;
+        private Button ProductIntoStorageBtn;
     }
 }

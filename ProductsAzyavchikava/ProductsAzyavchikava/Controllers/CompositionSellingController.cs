@@ -7,12 +7,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProductsAzyavchikava.Views;
 
 namespace ProductsAzyavchikava.Controllers
 {
     public class CompositionSellingController
     {
         private readonly ICompositionSellingView _view;
+        private readonly IMainView _mainView;
         private readonly ICompositionSellingWithBaseRepository _repository;
         private readonly IRepository<SellViewModel> _sellRepository;
         private readonly IRepository<ProductViewModel> _productRepository;
@@ -25,12 +27,13 @@ namespace ProductsAzyavchikava.Controllers
         private IEnumerable<SellViewModel>? _sell;
         private IEnumerable<ProductViewModel>? _product;
 
-        public CompositionSellingController(ICompositionSellingView view, ICompositionSellingWithBaseRepository repository, IRepository<SellViewModel> sellRepository, IRepository<ProductViewModel> productRepository)
+        public CompositionSellingController(ICompositionSellingView view, ICompositionSellingWithBaseRepository repository, IRepository<SellViewModel> sellRepository, IRepository<ProductViewModel> productRepository, IMainView mainView)
         {
             _view = view;
             _repository = repository;
             _sellRepository = sellRepository;
             _productRepository = productRepository;
+            _mainView = mainView;
 
             compositionSellBindingSource = new BindingSource();
             sellBindingSource = new BindingSource();
@@ -43,6 +46,7 @@ namespace ProductsAzyavchikava.Controllers
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
             view.CheckPrintEvent += CheckPrint;
+            view.SellOpen += SellOpen;
 
             LoadCompositionSellingList();
             LoadCombobox();
@@ -52,6 +56,14 @@ namespace ProductsAzyavchikava.Controllers
             view.SetSellBindingSource(sellBindingSource);
 
             _view.Show();
+        }
+
+        private void SellOpen(object? sender, EventArgs e)
+        {
+            ISellView view = SellView.GetInstance((MainView)_mainView);
+            IRepository<SellViewModel> repository = new SellRepository(new ApplicationContext());
+            IRepository<ShopViewModel> shopRepository = new ShopRepository(new ApplicationContext());
+            new SellController(view, repository, shopRepository, _mainView);
         }
 
         private void CheckPrint(object? sender, EventArgs e)

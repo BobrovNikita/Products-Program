@@ -44,6 +44,8 @@
             this.SearchTxb = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.SupplyDateObj = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.DriverTxt = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -66,8 +68,7 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.SupplyDateObj = new System.Windows.Forms.DateTimePicker();
+            this.CompositionRequestBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -121,6 +122,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.CompositionRequestBtn);
             this.tabPage1.Controls.Add(this.dateTimePicker2);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.SearchWithDateBtn);
@@ -290,6 +292,25 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Детали";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(323, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(152, 25);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Дата поставки:";
+            // 
+            // SupplyDateObj
+            // 
+            this.SupplyDateObj.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SupplyDateObj.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SupplyDateObj.Location = new System.Drawing.Point(323, 99);
+            this.SupplyDateObj.Name = "SupplyDateObj";
+            this.SupplyDateObj.Size = new System.Drawing.Size(226, 29);
+            this.SupplyDateObj.TabIndex = 27;
             // 
             // label14
             // 
@@ -501,24 +522,17 @@
             this.CountTxt.Size = new System.Drawing.Size(213, 25);
             this.CountTxt.TabIndex = 0;
             // 
-            // label9
+            // CompositionRequestBtn
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(323, 71);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(152, 25);
-            this.label9.TabIndex = 28;
-            this.label9.Text = "Дата поставки:";
-            // 
-            // SupplyDateObj
-            // 
-            this.SupplyDateObj.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SupplyDateObj.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SupplyDateObj.Location = new System.Drawing.Point(323, 99);
-            this.SupplyDateObj.Name = "SupplyDateObj";
-            this.SupplyDateObj.Size = new System.Drawing.Size(226, 29);
-            this.SupplyDateObj.TabIndex = 27;
+            this.CompositionRequestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CompositionRequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompositionRequestBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CompositionRequestBtn.Location = new System.Drawing.Point(616, 202);
+            this.CompositionRequestBtn.Name = "CompositionRequestBtn";
+            this.CompositionRequestBtn.Size = new System.Drawing.Size(146, 32);
+            this.CompositionRequestBtn.TabIndex = 14;
+            this.CompositionRequestBtn.Text = "Состав заявки";
+            this.CompositionRequestBtn.UseVisualStyleBackColor = true;
             // 
             // RequestView
             // 
@@ -583,5 +597,6 @@
         private Button SearchWithDateBtn;
         private Label label9;
         private DateTimePicker SupplyDateObj;
+        private Button CompositionRequestBtn;
     }
 }

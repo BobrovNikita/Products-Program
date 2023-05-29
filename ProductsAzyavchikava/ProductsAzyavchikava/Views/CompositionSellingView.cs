@@ -84,13 +84,17 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
         public event EventHandler CheckPrintEvent;
+        public event EventHandler SellOpen;
 
         public CompositionSellingView()
         {
             InitializeComponent();
             AssosiateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPage2);
-            CloseBtn.Click += delegate { this.Close(); };
+            CloseBtn.Click += delegate
+            {
+                SellOpen?.Invoke(this, EventArgs.Empty);
+            };
             IdTxt.Text = Guid.Empty.ToString();
         }
 

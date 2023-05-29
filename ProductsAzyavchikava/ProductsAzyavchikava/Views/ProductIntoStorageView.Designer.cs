@@ -33,8 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AktGettingPrintBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
-            this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +51,6 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
-            this.AktGettingPrintBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -107,7 +106,6 @@
             // 
             this.tabPage1.Controls.Add(this.AktGettingPrintBtn);
             this.tabPage1.Controls.Add(this.DeleteBtn);
-            this.tabPage1.Controls.Add(this.EditBtn);
             this.tabPage1.Controls.Add(this.AddBtn);
             this.tabPage1.Controls.Add(this.SearchBtn);
             this.tabPage1.Controls.Add(this.label2);
@@ -121,29 +119,29 @@
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // AktGettingPrintBtn
+            // 
+            this.AktGettingPrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AktGettingPrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AktGettingPrintBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AktGettingPrintBtn.Location = new System.Drawing.Point(640, 179);
+            this.AktGettingPrintBtn.Name = "AktGettingPrintBtn";
+            this.AktGettingPrintBtn.Size = new System.Drawing.Size(146, 32);
+            this.AktGettingPrintBtn.TabIndex = 7;
+            this.AktGettingPrintBtn.Text = "Акт о приёме";
+            this.AktGettingPrintBtn.UseVisualStyleBackColor = true;
+            // 
             // DeleteBtn
             // 
             this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DeleteBtn.Location = new System.Drawing.Point(640, 179);
+            this.DeleteBtn.Location = new System.Drawing.Point(640, 141);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(146, 32);
             this.DeleteBtn.TabIndex = 6;
             this.DeleteBtn.Text = "Удалить";
             this.DeleteBtn.UseVisualStyleBackColor = true;
-            // 
-            // EditBtn
-            // 
-            this.EditBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.EditBtn.Location = new System.Drawing.Point(639, 141);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(147, 32);
-            this.EditBtn.TabIndex = 5;
-            this.EditBtn.Text = "Редактировать";
-            this.EditBtn.UseVisualStyleBackColor = true;
             // 
             // AddBtn
             // 
@@ -330,18 +328,6 @@
             this.CountTxt.Size = new System.Drawing.Size(213, 25);
             this.CountTxt.TabIndex = 0;
             // 
-            // AktGettingPrintBtn
-            // 
-            this.AktGettingPrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AktGettingPrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AktGettingPrintBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.AktGettingPrintBtn.Location = new System.Drawing.Point(639, 217);
-            this.AktGettingPrintBtn.Name = "AktGettingPrintBtn";
-            this.AktGettingPrintBtn.Size = new System.Drawing.Size(146, 32);
-            this.AktGettingPrintBtn.TabIndex = 7;
-            this.AktGettingPrintBtn.Text = "Акт о приёме";
-            this.AktGettingPrintBtn.UseVisualStyleBackColor = true;
-            // 
             // ProductIntoStorageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -371,7 +357,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private Button DeleteBtn;
-        private Button EditBtn;
         private Button AddBtn;
         private Button SearchBtn;
         private Label label2;

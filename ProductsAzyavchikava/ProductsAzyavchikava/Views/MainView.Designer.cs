@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CompositionSellingBtn = new System.Windows.Forms.Button();
             this.SellsBtn = new System.Windows.Forms.Button();
             this.StorageBtn = new System.Windows.Forms.Button();
             this.Shop_TypeBtn = new System.Windows.Forms.Button();
@@ -38,16 +37,12 @@
             this.ProductIntoShopBtn = new System.Windows.Forms.Button();
             this.Product_TypeBtn = new System.Windows.Forms.Button();
             this.ProductBtn = new System.Windows.Forms.Button();
-            this.CompositionRequestBtn = new System.Windows.Forms.Button();
-            this.ProductIntoStorageBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.panel1.Controls.Add(this.ProductIntoStorageBtn);
-            this.panel1.Controls.Add(this.CompositionSellingBtn);
             this.panel1.Controls.Add(this.SellsBtn);
             this.panel1.Controls.Add(this.StorageBtn);
             this.panel1.Controls.Add(this.Shop_TypeBtn);
@@ -56,25 +51,11 @@
             this.panel1.Controls.Add(this.ProductIntoShopBtn);
             this.panel1.Controls.Add(this.Product_TypeBtn);
             this.panel1.Controls.Add(this.ProductBtn);
-            this.panel1.Controls.Add(this.CompositionRequestBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(228, 552);
             this.panel1.TabIndex = 0;
-            // 
-            // CompositionSellingBtn
-            // 
-            this.CompositionSellingBtn.FlatAppearance.BorderSize = 0;
-            this.CompositionSellingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompositionSellingBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CompositionSellingBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CompositionSellingBtn.Location = new System.Drawing.Point(3, 12);
-            this.CompositionSellingBtn.Name = "CompositionSellingBtn";
-            this.CompositionSellingBtn.Size = new System.Drawing.Size(222, 40);
-            this.CompositionSellingBtn.TabIndex = 8;
-            this.CompositionSellingBtn.Text = "Состав продажи";
-            this.CompositionSellingBtn.UseVisualStyleBackColor = true;
             // 
             // SellsBtn
             // 
@@ -82,7 +63,7 @@
             this.SellsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SellsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SellsBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SellsBtn.Location = new System.Drawing.Point(6, 58);
+            this.SellsBtn.Location = new System.Drawing.Point(6, 104);
             this.SellsBtn.Name = "SellsBtn";
             this.SellsBtn.Size = new System.Drawing.Size(222, 40);
             this.SellsBtn.TabIndex = 7;
@@ -180,32 +161,6 @@
             this.ProductBtn.Text = "Товар";
             this.ProductBtn.UseVisualStyleBackColor = true;
             // 
-            // CompositionRequestBtn
-            // 
-            this.CompositionRequestBtn.FlatAppearance.BorderSize = 0;
-            this.CompositionRequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompositionRequestBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CompositionRequestBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CompositionRequestBtn.Location = new System.Drawing.Point(3, 104);
-            this.CompositionRequestBtn.Name = "CompositionRequestBtn";
-            this.CompositionRequestBtn.Size = new System.Drawing.Size(222, 40);
-            this.CompositionRequestBtn.TabIndex = 0;
-            this.CompositionRequestBtn.Text = "Состав заявки";
-            this.CompositionRequestBtn.UseVisualStyleBackColor = true;
-            // 
-            // ProductIntoStorageBtn
-            // 
-            this.ProductIntoStorageBtn.FlatAppearance.BorderSize = 0;
-            this.ProductIntoStorageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductIntoStorageBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ProductIntoStorageBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ProductIntoStorageBtn.Location = new System.Drawing.Point(3, 472);
-            this.ProductIntoStorageBtn.Name = "ProductIntoStorageBtn";
-            this.ProductIntoStorageBtn.Size = new System.Drawing.Size(222, 40);
-            this.ProductIntoStorageBtn.TabIndex = 9;
-            this.ProductIntoStorageBtn.Text = "Наличие на складе";
-            this.ProductIntoStorageBtn.UseVisualStyleBackColor = true;
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -230,9 +185,6 @@
         private Button ProductIntoShopBtn;
         private Button Product_TypeBtn;
         private Button ProductBtn;
-        private Button CompositionRequestBtn;
         private Button SellsBtn;
-        private Button CompositionSellingBtn;
-        private Button ProductIntoStorageBtn;
     }
 }

@@ -34,7 +34,9 @@ namespace ProductsAzyavchikava.Repositories
             {
                 var entity = ConvertToEntity(model);
 
-                context.ProductIntoStorages.Remove(entity);
+                var models = context.ProductIntoStorages.Where(e => e.ProductId == entity.ProductId).Include(e => e.Storage).Include(s => s.Product);
+
+                context.ProductIntoStorages.RemoveRange(models);
                 context.SaveChanges();
             }
         }
@@ -48,9 +50,26 @@ namespace ProductsAzyavchikava.Repositories
                 foreach (var e in entities)
                 {
                     viewModels.Add(ConvertToViewModel(e));
-                }
+                };
 
-                return viewModels;
+                var groups = viewModels.GroupBy
+                    (
+                    p => new
+                    {
+                        p.ProductId,
+                        p.StorageNumber,
+                        p.StorageId
+                    }
+                    ).Select(g => new ProductIntoStorageViewModel
+                    {
+                        ProductId = g.Key.ProductId,
+                        StorageId = g.Key.StorageId,
+                        ProductName = g.Select(p => p.ProductName).First(),
+                        Count = g.Select(p => p.Count).Sum(),
+                        StorageNumber = g.Key.StorageNumber
+                    });
+
+                return groups;
             }
         }
 

@@ -27,6 +27,7 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
         event EventHandler CheckPrintEvent;
+        event EventHandler SellOpen;
 
         void SetCompositionSellingBindingSource(BindingSource source);
         void SetSellBindingSource(BindingSource source);

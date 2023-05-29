@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.CompositionSellingBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -106,6 +107,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.CompositionSellingBtn);
             this.tabPage1.Controls.Add(this.DeleteBtn);
             this.tabPage1.Controls.Add(this.EditBtn);
             this.tabPage1.Controls.Add(this.AddBtn);
@@ -120,6 +122,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // CompositionSellingBtn
+            // 
+            this.CompositionSellingBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CompositionSellingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompositionSellingBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CompositionSellingBtn.Location = new System.Drawing.Point(615, 205);
+            this.CompositionSellingBtn.Name = "CompositionSellingBtn";
+            this.CompositionSellingBtn.Size = new System.Drawing.Size(171, 32);
+            this.CompositionSellingBtn.TabIndex = 7;
+            this.CompositionSellingBtn.Text = "Состав продажи";
+            this.CompositionSellingBtn.UseVisualStyleBackColor = true;
             // 
             // DeleteBtn
             // 
@@ -402,5 +416,6 @@
         private Button SaveBtn;
         private TextBox IdTxt;
         private TextBox FIOSalesmanTxt;
+        private Button CompositionSellingBtn;
     }
 }

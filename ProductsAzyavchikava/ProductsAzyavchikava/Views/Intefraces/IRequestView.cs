@@ -15,7 +15,7 @@ namespace ProductsAzyavchikava.Views.Intefraces
         DateTime Date { get; set; }
         DateTime SupplyDate { get; set; }
         int Product_Count { get; set; }
-        int Cost { get; set; }
+        double Cost { get; set; }
         int Number_Packages { get; set; }
         int Weigh { get; set; }
         string Car { get; set; }
@@ -36,6 +36,7 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
         event EventHandler SearchWithDateEvent;
+        event EventHandler CompositionRequestOpen;
 
         void SetRequestBindingSource(BindingSource source);
         void SetStorageBindingSource(BindingSource source);

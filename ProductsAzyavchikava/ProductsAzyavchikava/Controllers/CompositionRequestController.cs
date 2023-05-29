@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Interop.Word;
 using ProductsAzyavchikava.Model;
 using ProductsAzyavchikava.Repositories;
+using ProductsAzyavchikava.Views;
 using ProductsAzyavchikava.Views.Intefraces;
 using ProductsAzyavchikava.Views.ViewModels;
 using System;
@@ -15,6 +16,7 @@ namespace ProductsAzyavchikava.Controllers
     public class CompositionRequestController
     {
         private readonly ICompositionRequestView _view;
+        private readonly IMainView _mainView;
         private readonly IRepository<CompositionRequestViewModel> _repository;
         private readonly IRepository<ProductViewModel> _productRepository;
         private readonly IRepository<RequestViewModel> _requestRepository;
@@ -28,13 +30,14 @@ namespace ProductsAzyavchikava.Controllers
         private IEnumerable<ProductViewModel>? _products;
         private IEnumerable<CompositionRequestViewModel>? _composition;
 
-        public CompositionRequestController(ICompositionRequestView view, IRepository<CompositionRequestViewModel> repository, IRepository<ProductViewModel> productRepository, IRepository<RequestViewModel> requestRepository, IRepository<StorageViewModel> storageRepository)
+        public CompositionRequestController(ICompositionRequestView view, IRepository<CompositionRequestViewModel> repository, IRepository<ProductViewModel> productRepository, IRepository<RequestViewModel> requestRepository, IRepository<StorageViewModel> storageRepository, IMainView mainView)
         {
             _view = view;
             _repository = repository;
             _productRepository = productRepository;
             _requestRepository = requestRepository;
             _storageRepository = storageRepository;
+            _mainView = mainView;
 
             compositionRequestBindingSource = new BindingSource();
             ProductBindingSource = new BindingSource();
@@ -48,6 +51,7 @@ namespace ProductsAzyavchikava.Controllers
             view.CancelEvent += CancelAction;
             view.RemainingStockEvent += RemainingStock;
             view.RequestPrintEvent += RequestPrintEvent;
+            view.RequestOpen += RequestOpen;
 
             LoadProductTypeList();
             LoadCombobox();
@@ -57,6 +61,15 @@ namespace ProductsAzyavchikava.Controllers
             view.SetProductBindingSource(ProductBindingSource);
 
             _view.Show();
+        }
+
+        private void RequestOpen(object? sender, EventArgs e)
+        {
+            IRequestView view = RequestView.GetInstance((MainView)_mainView);
+            IRepository<RequestViewModel> repository = new RequestRepository(new ApplicationContext());
+            IRepository<ShopViewModel> shopRepository = new ShopRepository(new ApplicationContext());
+            IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
+            new RequestContorller(view, repository, storageRepository, shopRepository, _mainView);
         }
 
         private void RequestPrintEvent(object? sender, EventArgs e)

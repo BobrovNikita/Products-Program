@@ -58,7 +58,7 @@ namespace ProductsAzyavchikava.Views
                     CountTxt.Text = string.Empty;
             }
         }
-        public int Cost
+        public double Cost
         {
             get
             {
@@ -175,6 +175,7 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
         public event EventHandler SearchWithDateEvent;
+        public event EventHandler CompositionRequestOpen;
 
         public RequestView()
         {
@@ -256,6 +257,11 @@ namespace ProductsAzyavchikava.Views
                 CancelEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Add(tabPage1);
                 tabControl1.TabPages.Remove(tabPage2);
+            };
+
+            CompositionRequestBtn.Click += delegate
+            {
+                CompositionRequestOpen?.Invoke(this, EventArgs.Empty);
             };
 
             CountTxt.KeyPress += (s, e) =>

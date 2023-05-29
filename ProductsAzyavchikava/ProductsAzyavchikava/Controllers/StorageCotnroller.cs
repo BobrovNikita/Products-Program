@@ -1,4 +1,5 @@
 ﻿using ProductsAzyavchikava.Repositories;
+using ProductsAzyavchikava.Views;
 using ProductsAzyavchikava.Views.Intefraces;
 using ProductsAzyavchikava.Views.ViewModels;
 using System;
@@ -12,16 +13,18 @@ namespace ProductsAzyavchikava.Controllers
     public class StorageCotnroller
     {
         private readonly IStorageView _view;
+        private readonly IMainView _mainView;
         private readonly IRepository<StorageViewModel> _repository;
 
         private BindingSource storageBindingSource;
 
         private IEnumerable<StorageViewModel>? _storages;
 
-        public StorageCotnroller(IStorageView view, IRepository<StorageViewModel> repository)
+        public StorageCotnroller(IStorageView view, IRepository<StorageViewModel> repository, IMainView mainView)
         {
             _view = view;
             _repository = repository;
+            _mainView = mainView;
 
             storageBindingSource = new BindingSource();
 
@@ -31,12 +34,23 @@ namespace ProductsAzyavchikava.Controllers
             view.DeleteEvent += DeleteSelected;
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
+            view.ProductIntoStorageOpen += ProductIntoStorageOpen;
 
             LoadProductTypeList();
 
             view.SetStorageBindingSource(storageBindingSource);
 
             _view.Show();
+            
+        }
+
+        private void ProductIntoStorageOpen(object? sender, EventArgs e)
+        {
+            IProductIntoStorageView view = ProductIntoStorageView.GetInstance((MainView)_mainView);
+            IRepository<ProductIntoStorageViewModel> repository = new ProductIntoStorageRepository(new ApplicationContext());
+            IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            new ProductIntoStorageController(view, repository, productRepository, storageRepository, _mainView);
         }
 
         private void LoadProductTypeList()

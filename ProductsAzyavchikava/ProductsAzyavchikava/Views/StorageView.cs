@@ -82,6 +82,7 @@ namespace ProductsAzyavchikava.Views
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        public event EventHandler ProductIntoStorageOpen;
 
         public StorageView()
         {
@@ -155,6 +156,11 @@ namespace ProductsAzyavchikava.Views
                 CancelEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Add(tabPage1);
                 tabControl1.TabPages.Remove(tabPage2);
+            };
+
+            ProductIntoStorageBtn.Click += delegate
+            {
+                ProductIntoStorageOpen?.Invoke(this, EventArgs.Empty);
             };
 
             NumberTxt.KeyPress += (s, e) =>

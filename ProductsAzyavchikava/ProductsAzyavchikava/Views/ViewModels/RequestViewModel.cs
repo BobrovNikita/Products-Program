@@ -34,7 +34,7 @@ namespace ProductsAzyavchikava.Views.ViewModels
         public int Products_Count { get; set; }
 
         [DisplayName("Цена")]
-        public int Cost { get; set; }
+        public double Cost { get; set; }
 
         [DisplayName("Кол.груз.мест")]
         public int Number_Packages { get; set; }

@@ -1,4 +1,5 @@
 ﻿using ProductsAzyavchikava.Repositories;
+using ProductsAzyavchikava.Views;
 using ProductsAzyavchikava.Views.Intefraces;
 using ProductsAzyavchikava.Views.ViewModels;
 using System;
@@ -12,6 +13,7 @@ namespace ProductsAzyavchikava.Controllers
     public class RequestContorller
     {
         private readonly IRequestView _view;
+        private readonly IMainView _mainView;
         private readonly IRepository<RequestViewModel> _repository;
         private readonly IRepository<StorageViewModel> _storageRepository;
         private readonly IRepository<ShopViewModel> _shopRepository;
@@ -24,12 +26,13 @@ namespace ProductsAzyavchikava.Controllers
         private IEnumerable<ShopViewModel>? _shops;
         private IEnumerable<StorageViewModel>? _storages;
 
-        public RequestContorller(IRequestView view, IRepository<RequestViewModel> repository, IRepository<StorageViewModel> storageRepository, IRepository<ShopViewModel> shopRepository)
+        public RequestContorller(IRequestView view, IRepository<RequestViewModel> repository, IRepository<StorageViewModel> storageRepository, IRepository<ShopViewModel> shopRepository, IMainView mainView)
         {
             _view = view;
             _repository = repository;
             _storageRepository = storageRepository;
             _shopRepository = shopRepository;
+            _mainView = mainView;
 
             requestBindingSource = new BindingSource();
             shopBindingSource = new BindingSource();
@@ -42,6 +45,7 @@ namespace ProductsAzyavchikava.Controllers
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
             view.SearchWithDateEvent += SearchWithDate;
+            view.CompositionRequestOpen += CompositionRequestOpen;
 
             LoadProductTypeList();
             LoadCombobox();
@@ -51,6 +55,16 @@ namespace ProductsAzyavchikava.Controllers
             view.SetShopBindingSource(shopBindingSource);
 
             _view.Show();
+        }
+
+        private void CompositionRequestOpen(object? sender, EventArgs e)
+        {
+            ICompositionRequestView view = CompositionRequestView.GetInstance((MainView)_mainView);
+            IRepository<CompositionRequestViewModel> repository = new CompositionRequestRepository(new ApplicationContext());
+            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
+            IRepository<RequestViewModel> requestRepository = new RequestRepository(new ApplicationContext());
+            IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
+            new CompositionRequestController(view, repository, productRepository, requestRepository, storageRepository, _mainView);
         }
 
         private void LoadProductTypeList()

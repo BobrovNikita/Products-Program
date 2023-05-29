@@ -14,6 +14,7 @@ namespace ProductsAzyavchikava.Controllers
     public class ProductIntoStorageController
     {
         private readonly IProductIntoStorageView _view;
+        private readonly IMainView _mainView;
         private readonly IRepository<ProductIntoStorageViewModel> _repository;
         private readonly IRepository<ProductViewModel> _productRepository;
         private readonly IRepository<StorageViewModel> _storageRepository;
@@ -26,12 +27,14 @@ namespace ProductsAzyavchikava.Controllers
         private IEnumerable<ProductViewModel>? _products;
         private IEnumerable<StorageViewModel>? _storage;
 
-        public ProductIntoStorageController(IProductIntoStorageView view, IRepository<ProductIntoStorageViewModel> repository, IRepository<ProductViewModel> productRepository, IRepository<StorageViewModel> storageRepository)
+        public ProductIntoStorageController(IProductIntoStorageView view, IRepository<ProductIntoStorageViewModel> repository, IRepository<ProductViewModel> productRepository, IRepository<StorageViewModel> storageRepository, IMainView mainView)
         {
             _view = view;
             _repository = repository;
             _productRepository = productRepository;
             _storageRepository = storageRepository;
+            _mainView = mainView;
+
 
             ProductIntoStorageBindingSource = new BindingSource();
             ProductBindingSource = new BindingSource();
@@ -44,6 +47,7 @@ namespace ProductsAzyavchikava.Controllers
             view.SaveEvent += Save;
             view.CancelEvent += CancelAction;
             view.AktGettingEvent += AktgettingEvent;
+            view.StorageOpen += StorageOpen;
 
             LoadProductTypeList();
             LoadCombobox();
@@ -53,6 +57,14 @@ namespace ProductsAzyavchikava.Controllers
             view.SetProductBindingSource(ProductBindingSource);
 
             _view.Show();
+            
+        }
+
+        private void StorageOpen(object? sender, EventArgs e)
+        {
+            IStorageView view = StorageView.GetInstance((MainView)_mainView);
+            IRepository<StorageViewModel> repository = new StorageRepository(new ApplicationContext());
+            new StorageCotnroller(view, repository, _mainView);
         }
 
         private void AktgettingEvent(object? sender, EventArgs e)

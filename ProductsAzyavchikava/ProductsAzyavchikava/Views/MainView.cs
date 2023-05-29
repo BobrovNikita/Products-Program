@@ -22,7 +22,6 @@ namespace ProductsAzyavchikava.Views
 
         private void InitializeBtnEvents()
         {
-            CompositionRequestBtn.Click += delegate { LoadCompositionRequest?.Invoke(this, EventArgs.Empty); };
             ProductBtn.Click += delegate { LoadProduct?.Invoke(this, EventArgs.Empty); };
             Product_TypeBtn.Click += delegate { LoadProduct_Type?.Invoke(this, EventArgs.Empty); };
             ProductIntoShopBtn.Click += delegate { LoadProductIntoShop?.Invoke(this, EventArgs.Empty); };
@@ -31,8 +30,6 @@ namespace ProductsAzyavchikava.Views
             Shop_TypeBtn.Click += delegate { LoadShop_Type?.Invoke(this, EventArgs.Empty); };
             StorageBtn.Click += delegate { LoadStorage?.Invoke(this, EventArgs.Empty); };
             SellsBtn.Click += delegate { LoadSell?.Invoke(this, EventArgs.Empty); };
-            CompositionSellingBtn.Click += delegate { LoadCompositionSell?.Invoke(this, EventArgs.Empty); };
-            ProductIntoStorageBtn.Click += delegate { LoadProductIntoStorage?.Invoke(this, EventArgs.Empty); };
             FormClosed += delegate { Application.Exit(); };
         }
 

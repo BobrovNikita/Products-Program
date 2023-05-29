@@ -30,16 +30,16 @@ namespace ProductsAzyavchikava.Views.ViewModels
         public string Hatch { get; set; }
 
         [DisplayName("Цена")]
-        public int Cost { get; set; }
+        public double Cost { get; set; }
 
         [DisplayName("НДС")]
-        public int NDS { get; set; }
+        public double NDS { get; set; }
 
         [DisplayName("Наценка")]
-        public int Markup { get; set; }
+        public double Markup { get; set; }
 
         [DisplayName("Рознич. Цена")]
-        public int Retail_Price { get; set; }
+        public double Retail_Price { get; set; }
 
         [DisplayName("Производство")]
         public string Production { get; set; }

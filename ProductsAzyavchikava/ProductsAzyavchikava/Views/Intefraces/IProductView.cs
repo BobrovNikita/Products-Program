@@ -16,9 +16,9 @@ namespace ProductsAzyavchikava.Views.Intefraces
         public string PName { get; set; }
         public string VendorCode { get; set; }
         public string Hatch { get; set; }
-        public int Cost { get; set; }
-        public int NDS { get; set; }
-        public int Markup { get; set; }
+        public double Cost { get; set; }
+        public double NDS { get; set; }
+        public double Markup { get; set; }
         public string Production { get; set; }
         public int Weight_Per_Price { get; set; }
         public int Weight { get; set; }

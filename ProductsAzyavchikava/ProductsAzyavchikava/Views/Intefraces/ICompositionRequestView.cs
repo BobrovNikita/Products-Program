@@ -13,7 +13,7 @@ namespace ProductsAzyavchikava.Views.Intefraces
         RequestViewModel RequestId { get; set; }
         ProductViewModel ProductId { get; set; }
         int Count { get; set; }
-        int Sum { get; set; }
+        double Sum { get; set; }
 
         string searchValue { get; set; }
         bool IsEdit { get; set; }
@@ -29,6 +29,7 @@ namespace ProductsAzyavchikava.Views.Intefraces
         event EventHandler CancelEvent;
         event EventHandler RemainingStockEvent;
         event EventHandler RequestPrintEvent;
+        event EventHandler RequestOpen;
 
         void SetCompositionBindingSource(BindingSource source);
         void SetRequestBindingSource(BindingSource source);

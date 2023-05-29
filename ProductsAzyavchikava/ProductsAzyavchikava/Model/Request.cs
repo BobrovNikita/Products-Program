@@ -22,7 +22,7 @@ namespace ProductsAzyavchikava.Model
 
         [Required(ErrorMessage = "Стоимость заявки это обязательное поле")]
         [Range(1, 10000, ErrorMessage = "Стоимость заявки должно быть между 1 и 10000")]
-        public int Request_Cost { get; set; }
+        public double Request_Cost { get; set; }
 
         [Required(ErrorMessage = "Количество грузовых мест это обязательное поле")]
         [Range(1, 5000, ErrorMessage = "Количество грузовых мест должно быть от 1 до 5000")]

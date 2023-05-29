@@ -20,12 +20,12 @@ namespace ProductsAzyavchikava.Views.ViewModels
         public string ProductName { get; set; }
 
         [DisplayName("Цена товара")]
-        public int ProductCost { get; set; }
+        public double ProductCost { get; set; }
 
         [DisplayName("Дата продажи")]
         public DateTime SellDate { get; set; }
 
         [DisplayName("Сумма")]
-        public int Sum { get; set; }
+        public double Sum { get; set; }
     }
 }

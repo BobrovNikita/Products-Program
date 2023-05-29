@@ -49,7 +49,7 @@ namespace ProductsAzyavchikava.Views
             get => HatchTxt.Text;
             set => HatchTxt.Text = value;
         }
-        public int Cost
+        public double Cost
         {
             get
             {
@@ -72,7 +72,7 @@ namespace ProductsAzyavchikava.Views
                     CostTxt.Text = string.Empty;
             }
         }
-        public int NDS
+        public double NDS
         {
             get
             {
@@ -95,7 +95,7 @@ namespace ProductsAzyavchikava.Views
                     NDSTxt.Text = string.Empty;
             }
         }
-        public int Markup
+        public double Markup
         {
             get
             {

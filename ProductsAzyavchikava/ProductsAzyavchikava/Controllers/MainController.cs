@@ -28,7 +28,6 @@ namespace ProductsAzyavchikava.Controllers
             _mainView.LoadShop_Type += LoadShop_Type;
             _mainView.LoadStorage += LoadStorage;
             _mainView.LoadSell += LoadSell;
-            _mainView.LoadCompositionSell += LoadCompositionSell;
             _mainView.LoadProductIntoStorage += LoadProductIntoStorage;
         }
 
@@ -38,16 +37,7 @@ namespace ProductsAzyavchikava.Controllers
             IRepository<ProductIntoStorageViewModel> repository = new ProductIntoStorageRepository(new ApplicationContext());
             IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
             IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
-            new ProductIntoStorageController(view, repository, productRepository, storageRepository);
-        }
-
-        private void LoadCompositionSell(object? sender, EventArgs e)
-        {
-            ICompositionSellingView view = CompositionSellingView.GetInstance((MainView)_mainView);
-            ICompositionSellingWithBaseRepository repository = new CompositionSellingRepository(new ApplicationContext());
-            IRepository<SellViewModel> sellRepository = new SellRepository(new ApplicationContext());
-            IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
-            new CompositionSellingController(view, repository, sellRepository, productRepository);
+            new ProductIntoStorageController(view, repository, productRepository, storageRepository, _mainView);
         }
 
         private void LoadSell(object? sender, EventArgs e)
@@ -55,7 +45,7 @@ namespace ProductsAzyavchikava.Controllers
             ISellView view = SellView.GetInstance((MainView)_mainView);
             IRepository<SellViewModel> repository = new SellRepository(new ApplicationContext());
             IRepository<ShopViewModel> shopRepository = new ShopRepository(new ApplicationContext());
-            new SellController(view, repository, shopRepository);
+            new SellController(view, repository, shopRepository, _mainView);
         }
 
         private void LoadCompositionRequest(object? sender, EventArgs e)
@@ -65,7 +55,7 @@ namespace ProductsAzyavchikava.Controllers
             IRepository<ProductViewModel> productRepository = new ProductRepository(new ApplicationContext());
             IRepository<RequestViewModel> requestRepository = new RequestRepository(new ApplicationContext());
             IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
-            new CompositionRequestController(view, repository, productRepository, requestRepository, storageRepository);
+            new CompositionRequestController(view, repository, productRepository, requestRepository, storageRepository, _mainView);
         }
 
         private void LoadProduct(object? sender, EventArgs e)
@@ -99,7 +89,7 @@ namespace ProductsAzyavchikava.Controllers
             IRepository<RequestViewModel> repository = new RequestRepository(new ApplicationContext());
             IRepository<ShopViewModel> shopRepository = new ShopRepository(new ApplicationContext());
             IRepository<StorageViewModel> storageRepository = new StorageRepository(new ApplicationContext());
-            new RequestContorller(view, repository, storageRepository, shopRepository);
+            new RequestContorller(view, repository, storageRepository, shopRepository, _mainView);
         }
 
         private void LoadShop(object? sender, EventArgs e)
@@ -124,7 +114,7 @@ namespace ProductsAzyavchikava.Controllers
         {
             IStorageView view = StorageView.GetInstance((MainView)_mainView);
             IRepository<StorageViewModel> repository = new StorageRepository(new ApplicationContext());
-            new StorageCotnroller(view, repository);
+            new StorageCotnroller(view, repository, _mainView);
         }
     }
 
