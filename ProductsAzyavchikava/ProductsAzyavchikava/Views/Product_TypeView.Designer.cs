@@ -162,7 +162,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Search";
+            this.SearchBtn.Text = "Поиск";
             this.SearchBtn.UseVisualStyleBackColor = true;
             // 
             // label2

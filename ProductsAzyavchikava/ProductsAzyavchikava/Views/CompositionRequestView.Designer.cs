@@ -55,9 +55,9 @@
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.RequestBtn = new System.Windows.Forms.Button();
             this.CancelPrint = new System.Windows.Forms.Button();
             this.RemainingStockBtn = new System.Windows.Forms.Button();
-            this.RequestBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -186,7 +186,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Search";
+            this.SearchBtn.Text = "Поиск";
             this.SearchBtn.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -382,6 +382,18 @@
             this.tabPage3.Text = "Печать";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // RequestBtn
+            // 
+            this.RequestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RequestBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.RequestBtn.Location = new System.Drawing.Point(8, 91);
+            this.RequestBtn.Name = "RequestBtn";
+            this.RequestBtn.Size = new System.Drawing.Size(293, 32);
+            this.RequestBtn.TabIndex = 10;
+            this.RequestBtn.Text = "Заявка";
+            this.RequestBtn.UseVisualStyleBackColor = true;
+            // 
             // CancelPrint
             // 
             this.CancelPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -405,18 +417,6 @@
             this.RemainingStockBtn.TabIndex = 8;
             this.RemainingStockBtn.Text = "Остаток на складе";
             this.RemainingStockBtn.UseVisualStyleBackColor = true;
-            // 
-            // RequestBtn
-            // 
-            this.RequestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RequestBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RequestBtn.Location = new System.Drawing.Point(8, 91);
-            this.RequestBtn.Name = "RequestBtn";
-            this.RequestBtn.Size = new System.Drawing.Size(293, 32);
-            this.RequestBtn.TabIndex = 10;
-            this.RequestBtn.Text = "Заявка";
-            this.RequestBtn.UseVisualStyleBackColor = true;
             // 
             // CompositionRequestView
             // 

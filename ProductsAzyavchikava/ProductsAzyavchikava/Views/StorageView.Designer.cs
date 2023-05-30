@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ProductIntoStorageBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.PurposeTxt = new System.Windows.Forms.TextBox();
             this.NumberTxt = new System.Windows.Forms.TextBox();
-            this.ProductIntoStorageBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -121,6 +121,18 @@
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // ProductIntoStorageBtn
+            // 
+            this.ProductIntoStorageBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProductIntoStorageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductIntoStorageBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProductIntoStorageBtn.Location = new System.Drawing.Point(630, 199);
+            this.ProductIntoStorageBtn.Name = "ProductIntoStorageBtn";
+            this.ProductIntoStorageBtn.Size = new System.Drawing.Size(146, 59);
+            this.ProductIntoStorageBtn.TabIndex = 7;
+            this.ProductIntoStorageBtn.Text = "Наличие на складе";
+            this.ProductIntoStorageBtn.UseVisualStyleBackColor = true;
+            // 
             // DeleteBtn
             // 
             this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -166,7 +178,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Search";
+            this.SearchBtn.Text = "Поиск";
             this.SearchBtn.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -325,18 +337,6 @@
             this.NumberTxt.Name = "NumberTxt";
             this.NumberTxt.Size = new System.Drawing.Size(213, 25);
             this.NumberTxt.TabIndex = 0;
-            // 
-            // ProductIntoStorageBtn
-            // 
-            this.ProductIntoStorageBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProductIntoStorageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductIntoStorageBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ProductIntoStorageBtn.Location = new System.Drawing.Point(630, 199);
-            this.ProductIntoStorageBtn.Name = "ProductIntoStorageBtn";
-            this.ProductIntoStorageBtn.Size = new System.Drawing.Size(146, 59);
-            this.ProductIntoStorageBtn.TabIndex = 7;
-            this.ProductIntoStorageBtn.Text = "Наличие на складе";
-            this.ProductIntoStorageBtn.UseVisualStyleBackColor = true;
             // 
             // StorageView
             // 

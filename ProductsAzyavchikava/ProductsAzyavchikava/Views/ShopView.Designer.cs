@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.PrintBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.NameTxt = new System.Windows.Forms.TextBox();
             this.NumberTxt = new System.Windows.Forms.TextBox();
-            this.PrintBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -125,6 +125,18 @@
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // PrintBtn
+            // 
+            this.PrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PrintBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PrintBtn.Location = new System.Drawing.Point(628, 196);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(146, 60);
+            this.PrintBtn.TabIndex = 7;
+            this.PrintBtn.Text = "Перечень товаров";
+            this.PrintBtn.UseVisualStyleBackColor = true;
+            // 
             // DeleteBtn
             // 
             this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -170,7 +182,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Search";
+            this.SearchBtn.Text = "Поиск";
             this.SearchBtn.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -370,18 +382,6 @@
             this.NumberTxt.Name = "NumberTxt";
             this.NumberTxt.Size = new System.Drawing.Size(213, 25);
             this.NumberTxt.TabIndex = 0;
-            // 
-            // PrintBtn
-            // 
-            this.PrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PrintBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PrintBtn.Location = new System.Drawing.Point(628, 196);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.Size = new System.Drawing.Size(146, 60);
-            this.PrintBtn.TabIndex = 7;
-            this.PrintBtn.Text = "Перечень товаров";
-            this.PrintBtn.UseVisualStyleBackColor = true;
             // 
             // ShopView
             // 

@@ -41,6 +41,9 @@
             this.SearchTxb = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ShopCmb = new System.Windows.Forms.ComboBox();
+            this.ProductCmb = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,9 +51,6 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ProductCmb = new System.Windows.Forms.ComboBox();
-            this.ShopCmb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -164,7 +164,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Search";
+            this.SearchBtn.Text = "Поиск";
             this.SearchBtn.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -226,6 +226,36 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Детали";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ShopCmb
+            // 
+            this.ShopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ShopCmb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ShopCmb.FormattingEnabled = true;
+            this.ShopCmb.Location = new System.Drawing.Point(294, 181);
+            this.ShopCmb.Name = "ShopCmb";
+            this.ShopCmb.Size = new System.Drawing.Size(210, 29);
+            this.ShopCmb.TabIndex = 10;
+            // 
+            // ProductCmb
+            // 
+            this.ProductCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProductCmb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProductCmb.FormattingEnabled = true;
+            this.ProductCmb.Location = new System.Drawing.Point(11, 181);
+            this.ProductCmb.Name = "ProductCmb";
+            this.ProductCmb.Size = new System.Drawing.Size(210, 29);
+            this.ProductCmb.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(294, 143);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 25);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Магазин";
             // 
             // label5
             // 
@@ -297,36 +327,6 @@
             this.CountTxt.Name = "CountTxt";
             this.CountTxt.Size = new System.Drawing.Size(213, 25);
             this.CountTxt.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(294, 143);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 25);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Магазин";
-            // 
-            // ProductCmb
-            // 
-            this.ProductCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ProductCmb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ProductCmb.FormattingEnabled = true;
-            this.ProductCmb.Location = new System.Drawing.Point(11, 181);
-            this.ProductCmb.Name = "ProductCmb";
-            this.ProductCmb.Size = new System.Drawing.Size(210, 29);
-            this.ProductCmb.TabIndex = 9;
-            // 
-            // ShopCmb
-            // 
-            this.ShopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ShopCmb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ShopCmb.FormattingEnabled = true;
-            this.ShopCmb.Location = new System.Drawing.Point(294, 181);
-            this.ShopCmb.Name = "ShopCmb";
-            this.ShopCmb.Size = new System.Drawing.Size(210, 29);
-            this.ShopCmb.TabIndex = 10;
             // 
             // ShopTypeView
             // 

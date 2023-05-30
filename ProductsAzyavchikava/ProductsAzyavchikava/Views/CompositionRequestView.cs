@@ -157,14 +157,14 @@ namespace ProductsAzyavchikava.Views
                 }
                 else
                 {
-                    MessageBox.Show("You didn't choose some redord");
+                    MessageBox.Show("Вы не выбрали запись");
                 }
             };
 
             //Delete
             DeleteBtn.Click += delegate
             {
-                var result = MessageBox.Show("Are you sure you want to delete the selected record", "Warning",
+                var result = MessageBox.Show("Вы уверены что хотите удалить запись?", "Warning",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {

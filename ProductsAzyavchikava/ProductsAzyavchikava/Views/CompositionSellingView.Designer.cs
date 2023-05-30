@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.CheckBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
-            this.CheckBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -121,6 +121,18 @@
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // CheckBtn
+            // 
+            this.CheckBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CheckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CheckBtn.Location = new System.Drawing.Point(640, 205);
+            this.CheckBtn.Name = "CheckBtn";
+            this.CheckBtn.Size = new System.Drawing.Size(146, 32);
+            this.CheckBtn.TabIndex = 7;
+            this.CheckBtn.Text = "Чек";
+            this.CheckBtn.UseVisualStyleBackColor = true;
+            // 
             // DeleteBtn
             // 
             this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -166,7 +178,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Search";
+            this.SearchBtn.Text = "Поиск";
             this.SearchBtn.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -186,7 +198,7 @@
             this.SearchTxb.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SearchTxb.Location = new System.Drawing.Point(20, 53);
             this.SearchTxb.Name = "SearchTxb";
-            this.SearchTxb.Size = new System.Drawing.Size(451, 32);
+            this.SearchTxb.Size = new System.Drawing.Size(484, 32);
             this.SearchTxb.TabIndex = 1;
             // 
             // dataGridView1
@@ -329,18 +341,6 @@
             this.CountTxt.Name = "CountTxt";
             this.CountTxt.Size = new System.Drawing.Size(230, 25);
             this.CountTxt.TabIndex = 0;
-            // 
-            // CheckBtn
-            // 
-            this.CheckBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CheckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CheckBtn.Location = new System.Drawing.Point(640, 205);
-            this.CheckBtn.Name = "CheckBtn";
-            this.CheckBtn.Size = new System.Drawing.Size(146, 32);
-            this.CheckBtn.TabIndex = 7;
-            this.CheckBtn.Text = "Чек";
-            this.CheckBtn.UseVisualStyleBackColor = true;
             // 
             // CompositionSellingView
             // 

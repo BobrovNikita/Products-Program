@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.CompositionRequestBtn = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SearchWithDateBtn = new System.Windows.Forms.Button();
@@ -68,7 +69,6 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.IdTxt = new System.Windows.Forms.TextBox();
             this.CountTxt = new System.Windows.Forms.TextBox();
-            this.CompositionRequestBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -141,6 +141,18 @@
             this.tabPage1.Text = "Список";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // CompositionRequestBtn
+            // 
+            this.CompositionRequestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CompositionRequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompositionRequestBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CompositionRequestBtn.Location = new System.Drawing.Point(616, 202);
+            this.CompositionRequestBtn.Name = "CompositionRequestBtn";
+            this.CompositionRequestBtn.Size = new System.Drawing.Size(146, 32);
+            this.CompositionRequestBtn.TabIndex = 14;
+            this.CompositionRequestBtn.Text = "Состав заявки";
+            this.CompositionRequestBtn.UseVisualStyleBackColor = true;
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -166,9 +178,9 @@
             this.SearchWithDateBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SearchWithDateBtn.Location = new System.Drawing.Point(674, 12);
             this.SearchWithDateBtn.Name = "SearchWithDateBtn";
-            this.SearchWithDateBtn.Size = new System.Drawing.Size(110, 32);
+            this.SearchWithDateBtn.Size = new System.Drawing.Size(110, 58);
             this.SearchWithDateBtn.TabIndex = 7;
-            this.SearchWithDateBtn.Text = "Search date";
+            this.SearchWithDateBtn.Text = "Поиск по дате";
             this.SearchWithDateBtn.UseVisualStyleBackColor = true;
             // 
             // DeleteBtn
@@ -216,7 +228,7 @@
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(121, 32);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Search";
+            this.SearchBtn.Text = "Поиск";
             this.SearchBtn.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -521,18 +533,6 @@
             this.CountTxt.Name = "CountTxt";
             this.CountTxt.Size = new System.Drawing.Size(213, 25);
             this.CountTxt.TabIndex = 0;
-            // 
-            // CompositionRequestBtn
-            // 
-            this.CompositionRequestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CompositionRequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompositionRequestBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CompositionRequestBtn.Location = new System.Drawing.Point(616, 202);
-            this.CompositionRequestBtn.Name = "CompositionRequestBtn";
-            this.CompositionRequestBtn.Size = new System.Drawing.Size(146, 32);
-            this.CompositionRequestBtn.TabIndex = 14;
-            this.CompositionRequestBtn.Text = "Состав заявки";
-            this.CompositionRequestBtn.UseVisualStyleBackColor = true;
             // 
             // RequestView
             // 
